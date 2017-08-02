@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+    <title>众网金融</title>
+	<!-- <link rel="stylesheet" href="css/bootstrap.css"/> -->
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="css/finacial.css" />
+    <link rel="stylesheet" href="css/myselect.css" />
+    <link rel="stylesheet" type="text/css" href="css/usercenter.css">
+    <link rel="stylesheet" type="text/css" href="css/payconfirm.css">
+    <link rel="stylesheet" type="text/css" href="css/withdraw.css">
+    <link rel="stylesheet" href="css/tradepw.css" />
+    <link rel="stylesheet" type="text/css" href="css/button.css">
+    <link rel="stylesheet" type="text/css" href="css/aboutus.css">
+    
+</head>
+<body ng-cloak ng-controller="parentController">
+
+<header class='header cannot-select' ng-controller="headController" name="top">
+	<div id="shortcut-1200">
+	<!-- shortcut -->
+		<div class="w bd">
+			<ul class="f1">
+				<li class="texthover"><a ng-click="user.part1.click();" ng-model="user.part1" ng-class="{true: 'active', false: 'inactive'}[isActive]">{{user.part1.title}}</a></li>
+				<li class="texthover"><a ng-click="user.part2.click();" ng-model="user.part2">{{user.part2.title}}</a></li>
+			</ul>
+			<ul class="f2">
+				<li class="my-asset" ng-mouseleave="assetOut();">
+					<div>
+						<a ng-model="tool.part1" ng-click="gotoAccount(0);" ng-mouseover="assetHover();" class="texthover title">{{tool.part1.title}}</a>
+						<div 
+						ng-show="partHover" 
+						class="show-menu">
+							<ul>
+								<li class="texthover"><a ng-click="gotoAccount(1);" >我的投资</a></li>
+								<li class="texthover"><a ng-click="gotoAccount(2);" >账户安全</a></li>
+								<li class="texthover"><a ng-click="gotoAccount(1);">我的交易</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="texthover"><a ng-click="" ng-model="tool.part2">{{tool.part2.title}}</a></li>
+				<li class="texthover"><a ng-click="" ng-model="tool.part3">{{tool.part3.title}}</a></li>
+				<li class=""><a ng-click="" ng-model="tool.part4">{{tool.part4.title}}</a></li>
+				<li class="phone-num"><a ng-click="" ng-model="tool.part5">{{tool.part5.title}}</a></li>
+			</ul>
+			<span class="clear"></span>
+		</div>
+	</div>
+	<div class="bar">
+		<div class="w">
+			<div class="bd_logo">
+				<a href="#/" class="logo"></a>
+			</div>
+			<!-- <div class="bd_search"> -->
+				<ol class="bd_search">
+					<li class="bd_search_li">
+						<my-select 
+						options-data='[{index:0, label:"银行理财"}, {index:1, label:"综合"}, {index:2, label:"信托基金"}]' 
+						selected-index="searchOption" 
+						replace-select="true"
+						ng-class='{true:"hideBorderButtom", false:"showBorderButton"}[showOptions]'
+						class="menu"></my-select>
+					</li>
+					<li class="bd_search_li"><input /></li>
+					<li class="bd_search_li"><span class="btn">搜索</span></li>
+				</ol>
+			<!-- </div> -->
+			<span class="clear"></span>
+		</div>
+	</div>
+	<nav class="nav">
+		<div class="w">
+			<div class="category" style="display:none" ng-controller="categoryController" ng-mouseleave="hideCategoryContainer();" ng-mouseover="showCategoryContainer();">
+				<div class="dt">
+					<a target="_blank">全部理财产品</a>
+				</div>
+				<!-- <div class="category-container w" ng-show="showCategory" >
+					<div class="category">
+						<div class="dd">
+							<div class="item" ng-repeat="item in categoryList" ng-mouseover="showSubCategory(this, $event);">
+								<span>
+									<a target="_blank">{{item.category_name}}</a>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="subcategory" ng-repeat="subcategory_item in hash_category_selected">
+						<div class="animate-show" ng-show="isSelected(subcategory_item)" ng-mouseleave="hideSubCategory();">
+							<p>{{selectedCategory}}</p>
+							<ul>
+								<li ng-repeat="subitem in subcategory_item.sublist">
+									{{subitem.sub_category_name}}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+
+			</div>
+			<div class="menu">
+				<ul class="navitems">
+					<li class="navitem" ng-repeat="item in navList" ng-class="{true:'active'}[$index==rootIndex]" ng-click="navhover($index)">
+						<a href="{{item.href}}">{{item.name}}</a>
+						<span ng-show="isHot(item)" class="icon icon_hot"></span>
+					</li>
+				</ul>	
+			</div>
+			<span class='clear'></span>
+		</div>
+	</nav>
+</header>
+
+<div class="page_container" ng-view></div>
+
+<footer class="foot_container" ng-controller="footController">
+	<div class="wrap_foot">
+		<div class="left-block block">
+			<ul>
+				<li>
+					<p>
+						<span class="document" ng-repeat="document in documentList"><a href="{{document.src}}">{{document.title}}</a></span>
+					</p>
+				</li>
+				<li class="copyright">
+					<p>Copyright © 2015-2016 众网金融科技(上海) allinmoney.com 版权所有</p>
+					<p>备案号 沪ICP备15055080号-1</p>
+				</li>
+				<li>
+					<img class="icon" src="img/safeiconlogo.png">
+				</li>
+			</ul>
+		</div>
+		<div class="middle-block block">
+			<ul>
+				<li><p class="p1">服务热线</p></li>
+				<li><p class="p2 orange">400 800 800</p></li>
+			</ul>
+		</div>
+		<div class="right-block block">
+			<div class="left-pannel">
+				<p>关注我们</p>
+				<p>
+					<span class="qq_icon icon"></span>
+					<span class="weibo_icon icon"></span>
+				</p>
+			</div>
+			<div class="right-pannel">
+				<img class="2D_code" src="img/2D_code_105_105.png" />
+			</div>
+		</div>
+	</div>
+	<span class="clear"></span>
+</footer>
+
+</body>
+<!-- <script data-main="js/common/main" src="js/lib/require/require.js"></script> -->
+<script type="text/javascript">
+	var jsLoad = document.createElement('script');
+	jsLoad.setAttribute('data-main', 'js/common/main');
+	jsLoad.setAttribute('src', 'js/lib/require/require.js');
+	document.body.appendChild(jsLoad);
+</script>
+</html>

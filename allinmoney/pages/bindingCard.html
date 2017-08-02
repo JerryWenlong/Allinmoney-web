@@ -1,0 +1,206 @@
+<form class="bingCard--page" name="bing_form">
+    <div class="bing_content">
+        <div class="w" ng-show="card.step==1" ng-init="geCityList()&&geBankBin()&&test()">
+            <div class="bing_card_dic">
+                <span class="bing_title">绑定银行卡</span> <span class="binging_img"></span><span class="binging_note">请绑定持卡人本人的银行卡</span>
+            </div>
+
+            <div class="binging_error_div">
+                <div class="binging_error" ng-show="card.errormessage">
+                    <small  ng-show="card.errormessage"><span ng-bind="card.errormessage"></span>
+                    </small>
+                </div>
+            </div>
+            <ul class="binging_input1_ul " ng-init="">
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">持卡人：</span></div>
+                    <input placeholder='请输入持卡人姓名' class="binging_r_input" type='text' name="name"
+                           maxlength="30"
+                           minlength="2"
+                           ng-pattern="/^[\u4e00-\u9fa5 ]{2,20}$|^[a-zA-Z\/ ]{2,20}$/"
+                           ng-model="card.name"/>
+                    <img class="binging_input1_icon" ng-show="bing_form.name.$invalid"/>
+                    <img class="binging_input1_iconok"
+                         ng-show="!bing_form.name.$invalid &&bing_form.name.$dirty&&card.name"/>
+                    <span class="binging_input1_message" ng-show=""></span>
+                    <span class="binging_input1_message" ng-show=""></span>
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">身份证：</span></div>
+                    <input placeholder='请输入持卡人身份证号码' class="binging_r_input" type='text' name="no" maxlength="18"
+                           minlength="15"
+                    ng-pattern="/^(([1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3})|([1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X|x)))$/"
+
+                           ng-model="card.no"
+
+                            /><img class="binging_input1_icon" ng-show="bing_form.no.$invalid || cardnod(card.no)"/>
+                    <img class="binging_input1_iconok" ng-show="!bing_form.no.$invalid && bing_form.no.$dirty && card.no && !cardnod(card.no)"/>
+                    <span class="binging_input1_message" ng-show="true">请输入正确的18位身份证号</span>
+                    <span class="binging_input1_message" ng-show=""></span>
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">银行卡：</span></div>
+                    <input placeholder='请输入银行卡号' class="binging_r_input" type='text' name="cardno"
+                           maxlength="19"
+                           minlength="14"
+                           ng-model="card.card"
+ng-pattern="/^[0-9]*$/"
+                            /><img class="binging_input1_icon" ng-show="bing_form.cardno.$invalid"/>
+                    <img class="binging_input1_iconok"
+                         ng-show="!bing_form.cardno.$invalid &&bing_form.cardno.$dirty&&card.card"/>
+                    <span class="binging_input1_message" ng-show="true">请确认已开通网上支付功能</span>
+                    <span class="binging_input1_message" ng-show=""></span>
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge binding_left"><span class="">发卡行：</span></div>
+                    <div class="binging_r_input binding_left binging_padingL0 binging_width321" ng-init="initB()">
+                        <my-select
+                                selected-index="searchMount"
+                                options-data=card.cardname
+                                default-select="true"
+                                default-select-value='请选择发卡银行'
+                                replace-select="true"
+                                hint-show=card.bankhint
+                                click-fun='showbank(t)'
+                                class="menu">
+                        </my-select>
+                    </div>
+                    <span class="clear"></span>
+                    <img class="binging_input1_icon" ng-show=""/>
+                    <img class="binging_input1_iconok" ng-show=""/>
+                    <span class="binging_input1_message" ng-show=""></span>
+                    <span class="binging_input1_message" ng-show=""></span>
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge binding_left">
+                        <span class="">发卡城市：</span></div>
+                    <ul class="binging_PC binding_left">
+                        <li class="binging_P" >
+                            <my-select
+                                    selected-index="searchMount"
+                                    options-data=card.cardposp
+                                    default-select="true"
+                                    default-select-value='所在省份'
+                                    replace-select="true"
+                                    hint-show=card.prhint
+                                    click-fun='initC(t)'
+                                    class="menu">
+                            </my-select>
+                        </li>
+                        <li class="binging_C">
+                            <my-select
+                                    selected-index="searchMount"
+                                    options-data=card.cardposc
+                                    default-select="true"
+                                    default-select-value='所在城市'
+                                    replace-select="true"
+                                    click-fun='showcity(t)'
+                                    hint-show=card.cityhint
+                                    class="menu">
+                            </my-select>
+                        </li>
+
+                    </ul>
+                    <span class="clear"></span>
+                    <img class="binging_input1_icon" ng-show=""/>
+                    <img class="binging_input1_iconok" ng-show=""/>
+                    <span class="binging_input1_message" ng-show=""></span>
+                    <span class="binging_input1_message" ng-show=""></span>
+
+
+                </li>
+
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">手机号：</span></div>
+                    <input placeholder='请输入银行预留手机号' class="binging_r_input" type='text' name="phone"
+                           ng-pattern="/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/"
+                           ng-model="card.cellphone"
+                            />
+                    <img class="binging_input1_icon" ng-show="bing_form.phone.$invalid"/>
+                    <img class="binging_input1_iconok"
+                         ng-show="!bing_form.phone.$invalid &&phone.name.$dirty&&card.cellphone"/>
+                    <span class="binging_input1_message" ng-show="true">与银行预留手机号相同</span>
+                    <span class="binging_input1_message" ng-show=""></span>
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">验证码：</span></div>
+                    <div class="binging_r_input_d"><input placeholder='请输入短信验证码' class="binging_r_i_c" type='text'
+                                                          name="code"
+                                                          ng-minlength="6"
+                                                          ng-maxlength="6"
+                                                          ng-model="card.checkcode"
+
+                            />
+                        <button id="binding-button" type="button" ng-disabled=" " class="binging_r_i_cc"
+                                ng-click="smstimerout()">发送动态码(60)
+                        </button>
+                        <span class="clean"></span>
+                    </div>
+                    <img class="binging_input1_icon" ng-show="bing_form.code.$invalid"/>
+                    <!--  <img  class="input1_iconok"  ng-show="!register_form.r_pcheck.$invalid &&register_form.r_pcheck.$dirty"  />-->
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"></div>
+                    <ul class="binging_check_black">
+                        <li class="binging_check"><input type="checkbox" ng-model="card.tos"/>同意</li>
+                        <li class="binging_check">
+                            <div><a class="binging_nline" href="payterm.html" target="_blank">《众网金融用户协议》</a></div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="binging_input1_li binging_r_button">
+                    <div class="binging_r_marge "></div>
+                    <button ng-click="setAccountCards()" type="button" class="binging_r_input_d bing_button buttondiasble"
+                            ng-disabled="!card.cellphone||!card.checkcode||!card.name||!card.no||!card.card|| card.tos!=true||cardnod(card.no)"
+                            >下一步
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="w" ng-show="card.step==2">
+            <div class="bing_card_dic">
+                <span class="bing_title">交易密码确认</span>
+            </div>
+
+            <div class="binging_error_div">
+                <div class="binging_error" ng-init="card.errormessage" ng-show="card.errormessage">
+
+                    <small class="binging_error" ng-show="card.errormessage"><span ng-bind="card.errormessage"></span></small>
+                </div>
+            </div>
+            <ul class="binging_input1_ul " >
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">交易密码：</span></div>
+                    <input placeholder='请输入交易密码' class="binging_r_input" type='password' name="pass" minlength="6" maxlength="6"
+                           ng-pattern="/^\d{6}$/"
+                           ng-model="card.pass"/>
+                    <img class="binging_input1_icon" ng-show="bing_form.pass.$invalid"/>
+                    <img class="binging_input1_iconok"
+                         ng-show="!bing_form.pass.$invalid &&bing_form.pass.$dirty&&card.pass"/>
+                    <span class="binging_input1_message" ng-show="true">交易密码六位数字</span>
+                    <span class="binging_input1_message" ng-show="false"></span>
+                </li>
+                <li class="binging_input1_li">
+                    <div class="binging_r_marge"><span class="">确认交易密码：</span></div>
+                    <input placeholder='请输入确认密码' class="binging_r_input" type='password' name="comfirmpass" minlength="6" maxlength="6"
+                           ng-model="card.comfirmpass"/>
+                    <img class="binging_input1_icon"
+                         ng-show="card.comfirmpass!=card.pass&&bing_form.comfirmpass.$dirty&&card.comfirmpass"/>
+                    <img class="binging_input1_iconok"
+                         ng-show="card.comfirmpass==card.pass&&bing_form.comfirmpass.$dirty&&card.comfirmpass"/>
+                    <span class="binging_input1_message" ng-show="card.comfirmpass!=card.pass">两次密码有误</span>
+                    <span class="binging_input1_message" ng-show="false"></span>
+                </li>
+                <li class="binging_input1_li binging_r_button">
+                    <div class="binging_r_marge "></div>
+                    <button ng-click="setPassword()" type="button" class="binging_r_input_d bing_button buttondiasble"
+                    ng-disabled="bing_form.comfirmpass.$invalid||bing_form.pass.$invalid||bing_form.comfirmpass.$pristine||bing_form.pass.$pristine||!confimPassword()||!card.pass"
+                    >下一步
+                    </button>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</form>

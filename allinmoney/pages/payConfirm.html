@@ -1,0 +1,196 @@
+<div class="payconfirm-page">
+<div class="w">
+	<div class="title-pannel">
+		<span class="font-22 title-color title">交易信息确认</span>
+		<div class="flip-clock">
+			<ul>
+				<li id='clockhour_e' class="flip"></li>
+				<li id='clockhour_a' class="flip"></li>
+				<li id='clockhour_b' class="flip"></li>
+			</ul>
+			<span class="flip-clock-divider minutes">
+				<span class="flip-clock-dot top"></span>
+				<span class="flip-clock-dot bottom"></span>
+			</span>
+			<ul>
+				<li id='clockmin_a' class="flip"></li>
+				<li id='clockmin_b' class="flip"></li>
+			</ul>
+			<span class="flip-clock-divider seconds">
+				<span class="flip-clock-dot top"></span>
+				<span class="flip-clock-dot bottom"></span>
+			</span>
+			<ul>
+				<li id='clockSec_a' class="flip"></li>
+				<li id='clockSec_b' class="flip"></li>
+			</ul>
+		</div>
+		<span class="left-time-title font-20 orange" style="float:right;">距离订单交易关闭还有</span>
+	</div>
+	<div class="payconfirm-container">
+		<span class="clear"></span>
+		<p class="subtitle font-14">
+			<span class="title-label">产品机构:</span><span class="title-value">{{order.productCompany}}</span>
+		</p>
+		<p class="subtitle font-14">
+			<span class="title-label">产品代码:</span><span class="title-value">{{order.productCode}}</span>
+		</p>
+		<ul class="product-info-table font-16">
+			<li class="name">
+				<span class="title">产品名</span>
+				<span class="value orange">{{order.productName}}</span>
+			</li>
+			<li class="fee">
+				<span class="title">买入金额(元)</span>
+				<span class="value bold">{{order.payAmount}}</span>
+			</li>
+			<li class="fee">
+				<span class="title">认购费(元)</span>
+				<span class="value bold">{{order.subFee}}</span>
+			</li>
+			<li class="fee">
+				<span class="title">手续费(元)</span>
+				<span class="value bold">{{order.commissionFee}}</span>
+			</li>
+			<li class="fee">
+				<span class="title">管理费(元)</span>
+				<span class="value bold">{{order.taFee}}</span>
+			</li>
+			<li class="fee">
+				<span class="title">期限(天)</span>
+				<span class="value bold">{{order.productPeriod}}</span>
+			</li>
+		</ul>
+		<p class="remindMessage font-14">
+			说明： "申购费"、 "手续费"、 "管理费" 将在成功申购后扣除 
+		</p>
+		<div class="method-pannel">
+			<p class="title">选择支付方式</p>
+			<label class="method-item">
+				<input type="radio" class="radio" name="payMethod" id="payMethod1" value="0" ng-model="currentPayMethod" ng-checked="true"/>
+				<label for="payMethod1"></label>
+				在线支付
+			</label>
+			<label class="method-item">
+				<input type="radio" class="radio" name="payMethod" id="payMethod2" value="1" ng-model="currentPayMethod" ng-click="scanCode()"/>
+				<label for="payMethod2"></label>
+				POS刷卡
+			</label>
+		</div>
+		<div class="card-pannel" ng-show="currentPayMethod == 0">
+			<p class="title">选择银行卡支付</p>
+			<ol id="bankList" style="position:relative">
+				<!-- <li style="position:relative" ng-repeat="card in cardList" class="card" ng-click="selectCard(card);" ng-class="{true:'selected'}[card.index == selectedCardIndex]"> -->
+				<li style="position:relative" ng-repeat="card in cardList" class="card" ng-click="selectCard(card);" ng-class="{'selected':selectStyle(card),'odd':oddStyle(card)}">
+					<span class="bank-icon card-item" style="background-image:Url({{card.cardUrl}})"></span>
+					<div class="bank-info card-item">
+						<p class="line-1">
+						<span class="title font-22">{{card.cardName}}</span>
+						<span class="tag font-14">{{card.cardType}}</span>
+						</p>
+						<p class="line-2"><span class="sub-title font-14">{{card.cardLimitInfo}}</span></p>
+					</div>
+					<span class="card-detail card-item font-14" style="float:right;" 
+					ng-mouseover="showCardDetail($event, card);" ng-mouseleave="hideCardDetail();">明细</span>
+
+				</li>
+			</ol>
+		</div>
+		<div class="balance-pannel">
+			<p class="total-pannel">
+				<span class="pay-label font-16">总计支付：</span>
+				<span class="total-amount font-40 orange">{{order.totalAmount}}</span>
+				<span class="pay-label font-16">元</span>
+			</p>
+			<p class="protocol-pannel">
+				<span class="orange font-14 item"><a href="payterm.html" target="_blank">《众网金融支付协议》</a></span>
+				<span class="font-14 item">同意</span>
+				<input type="checkbox" class="check1" id="check_protocol" ng-model="check_protocol">
+				<label for="check_protocol" class="item" ></label>
+				<span class="clear"></span>
+			</p>
+			<p class="btn-pannel">
+				<!--<span class="paybtn btn font-22 bold allinmoney-button-b64" ng-click="confirmBuy();">确认购买</span>-->
+                <button class="paybtn btn font-22 bold allinmoney-button-b64" ng-click="confirmBuy();"  ng-disabled="disableConfirmBtn()">确认购买</button>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="paywarp" ng-show="showConfirm || show2DCode || currentPayMethod  == 1">
+</div>
+<div class="confirm-pannel" ng-show="showConfirm">
+	<div class="confirm-paywarp" ng-show="loading">	
+		<span>Loading</span>
+	</div>
+	<p class="title font-16">
+		<span class="bold">输入短信验证码</span>
+		<span class="">(已发送至{{userphoneNum}})</span>
+		<span class="close-btn" alt="关闭" ng-click="closeConfirmPannel();"></span>
+	</p>
+	<div class="content">
+		<ul>
+			<li>
+				<span class="label font-14">验证码:</span>
+				<p class="sendline">
+					<input class="input font-22 bold" maxlength="6" ng-model="code" ng-blur="checkCode();">
+					<span class="send-btn font-14 btn allinmoney-otp-button" ng-click="sendBtnClick();" id="sendBtn">{{sendBtnText}}</span>
+				</p>
+				<p class="error" ng-show="codeInvalid">
+					<span class="error-icon"></span>
+					<span class="error-info font-14">请输入有效的短信验证码</span>
+				</p>
+				<p class="error" ng-show="codeFailed">
+					<span class="error-icon"></span>
+					<span class="error-info font-14">{{codeErrorMessage}}</span>
+				</p>
+				<span class="label font-14">交易密码:</span>
+				<p class="sendline">
+					<input type="password" class="input font-22 bold password" maxlength="6" ng-model="tradeCode"  ng-blur="checkTradeCode();">
+				</p>
+				<p class="error" ng-show="tradeCodeInvalid">
+					<span class="error-icon"></span>
+					<span class="error-info font-14">请正确输入交易密码</span>
+				</p>
+				<p class="error" ng-show="tradeCodeFailed">
+					<span class="error-icon"></span>
+					<span class="error-info font-14">{{tradeCodeErrorMessage}}</span>
+				</p>
+			</li>
+			<li>
+				<span class="next-btn btn allinmoney-button-b65" ng-click="payOrder();">下一步</span>
+			</li>
+			<li class="message-title font-14" style="width:100%;"><a style="float:left;" href="/backPassWord.html"><span>忘记交易密码?</span></a><span style="float:right;">没有收到验证码?</span></li>
+			<li class="message font-14">
+				<span>1.验证码发送至你绑定的手机号</span>
+				<span>2.请检查短信是否被手机安全软件拦截</span>
+				<span>3.若预留号码已停用,请致电400-400-888</span>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="confirm-pannel scancode" ng-show="currentPayMethodc == 1">
+
+	<p class="title font-16">
+		<span class="bold">使用POS机扫描以下二维码进行支付</span>
+		<span class="close-btn" alt="关闭" ng-click="colseScancode();"></span>
+	</p>
+	<div class="scode-content">
+    		
+            <div>
+                <p class="scodeimg"><img src="{{codeimg}}" width="240"/></p>
+                <p class="font-2 font-20" ng-show="scoderroe==1">请在<span>30分钟</span>内完成支付</p>
+                <p class="errormsg" ng-show="scoderroe==2">{{paysucc}}</p>
+            </div>
+            <div class="codebtn12">
+            <button ng-click="seeResults()" class="codebtn1">查看结果</button><!--<button ng-click="regetcode()" class="codebtn2">刷新二维码</button>-->
+            </div>
+
+          
+			
+            <!--<p class="font-2 font-21">已支付但页面未跳转，请点</span><a href="javascript:void(0);" ng-click="openOrderComplete()">下一步</a></p>-->
+		
+	</div>
+</div>
+
+</div>

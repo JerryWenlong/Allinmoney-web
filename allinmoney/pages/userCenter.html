@@ -1,0 +1,429 @@
+<div class="userCenter-page" >
+<div class="w">
+    <div class="content" id="usercenter_container">
+        <div class="left-pannel">
+            <div class="user-info left">
+                <a class="user-pic"><img/></a>
+                    <div class="info-container" id="infoContainer">
+                        <span class="username left font-16 bold mix-name">{{userName}}</span>
+                        <span class="clear"></span>
+                        <sapn class="nickname left font-14"></sapn>
+                        <span class="clear"></span>
+                        <ul class="tag-list">
+                            <li ng-repeat="icon in userIconList">
+                                <a href=""><span class="icon" ng-class="{'active':icon.active}" ng-mouseover="setTips($event, icon)" ng-mouseleave="resetTips()"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="tab-menu left">
+                <ol class="title-list">
+                    <li ng-repeat="menu in tabMenus.tabList" ng-click="changeTab(menu.index);" ng-class="{'selected':menu.index == accountTab}">
+                        <span>{{menu.title}}</span>
+                        <span class="right"></span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="right-pannel">
+            <div class="userinfo-container tab1 tab-page" ng-show="showTab(0);">
+                <div class="amount-tip-text" ng-show="show_amount_tip">
+                    <span>总资产=个人余额+在持产品买入金额+在持产品累计产生的收益</span>
+                    <span class="arrow big" id="arrow_big"></span>
+                    <span class="arrow small" id="arrow_small"></span>
+                </div>
+                <ul class="list-1 list">
+                    <li>
+                        <div class="block-1 block">
+                            <p class="title-1 title font-18">
+                                <span>总资产(元)</span>
+                                <span class="amount-tip" ng-mouseover="hover_amount_tip($event)" ng-mouseleave="leave_amount_tip()"></span>
+                                <span class="btn" ng-class="{'active': showAmount}" ng-click="swichShowAmount(false)">隐藏</span>
+                                <span class="btn" ng-class="{'active': !showAmount}" ng-click="swichShowAmount(true)">显示</span>
+                            </p>
+                            <p class="value">
+                                <span class="font-38 bold" ng-show="showAmount">{{currentUser.totalAsset}}</span>
+                                <span class="font-38 bold" ng-show="!showAmount">******</span>
+                            </p>
+                        </div>
+                        <div class="block-2 block">
+                            <p class="title-2 title">
+                                <span>账户余额</span>
+                            </p>
+                            <p class="value">
+                                <span class="font-38 bold" ng-show="showAmount">{{currentUser.totalFunds}}</span>
+                                <span class="font-38 bold" ng-show="!showAmount">******</span>
+                                <a class="right btn font-14 allinmoney-button-b65" href="#/withdraw/stepOne"><span>提现</span></a>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block-1 block">
+                            <p class="title-1 title">
+                                <span>昨日收益(元)</span>
+                            </p>
+                            <p>
+                                <span class="font-38 bold" ng-show="showAmount">{{currentUser.yesterdayRevenue}}</span>
+                                <span class="font-38 bold" ng-show="!showAmount">******</span>
+                            </p>
+                        </div>
+                        <div class="block-2 block">
+                            <p class="title-2 title">
+                                <span>累计收益(元)</span>
+                            </p>
+                            <p>
+                                <span class="font-38 bold orange" ng-show="showAmount">{{currentUser.totalRevenue}}</span>
+                                <span class="font-38 bold orange" ng-show="!showAmount">******</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list-2 list">
+                    <li class="list-title">
+                        <span class="left font-18 bold">持有产品</span>
+                        <span class="right font-14 texthover" ng-click="showAllProductList()" ng-show="!showAllUserProduct"> 查看所有 > </span>
+                        <span class="right font-14 texthover" ng-click="hideAllProductList()" ng-show="showAllUserProduct"> 收起 </span>
+                    </li>
+                    <li ng-repeat="item in userProductList">
+                        <a href="{{item.href}}" class="font-16 left texthover"><span>{{item.title}}</span></a>
+                        <a  class="btn right font-14"><span ng-click="openOrderDetail(item.ordetId)" >详细</span></a>
+                        <a href="{{item.href}}"><span class="btn right font-14">买入</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="userinfo-container tab2 tab-page" ng-show="showTab(1);">
+                <div class="userCenter_investment">
+                    <div class="investment_title_div">
+                        <span class="investment_title"> 我的投资  </span>
+                        <span class="investment_print">   </span>
+                    </div>
+                    <div class="investment_action" >
+                        <button ng-init="clickType(investmentPage)" ng-click="clickType(1)" ng-class="{true: 'actionhight', false: 'action'}[InvestmentPage.action==1]"><span  class='actionspan' >买入</span></button>
+                      <!--  <button ng-click="InvestmentPage.action=2" ng-class="{true: 'actionhight', false: 'action'}[InvestmentPage.action==2]"><span  class='actionspan'>取出/赎回</span></button>-->
+                        <button ng-click="clickType(3)" ng-class="{true: 'actionhight', false: 'action'}[InvestmentPage.action==3]"><span  class='actionspan'>收益</span></button>
+                        <button ng-click="clickType(4)" ng-class="{true: 'actionhight', false: 'action'}[InvestmentPage.action==4]"><span  class='actionspan'>余额</span></button>
+                        <button ng-click="clickType(5)" ng-class="{true: 'actionhight', false: 'action'}[InvestmentPage.action==5]"><span  class='actionspan'>提现</span></button>
+                        <button  ng-class="{true: 'actionhight', false: 'action w466'}[InvestmentPage.action==6]"></button>
+                        <span class="clean"></span>
+                    </div>
+                    <div class="investment_cycle" >
+                        <button ng-click="getOrdersM(0)" ng-class="{true: 'timeactionhight marginL20', false: 'timeaction marginL20'}[InvestmentPage.currentfeild==1]">全部</button>
+                        <button ng-click="getOrdersM(1)" ng-class="{true: 'timeactionhight', false: 'timeaction'}[InvestmentPage.currentfeild==2]">近一个月</button>
+                        <button ng-click="getOrdersM(3)" ng-class="{true: 'timeactionhight', false: 'timeaction'}[InvestmentPage.currentfeild==3]">近三个月</button>
+                        <button ng-click="getOrdersM(12)" ng-class="{true: 'timeactionhight', false: 'timeaction'}[InvestmentPage.currentfeild==4]">近一年</button>
+                        <div class="data_div">
+                            <span class="data_title">日期：</span>
+                            <div class="rowdefine" >
+                            <input class="uc_data data "   ng-model="InvestmentPage.fromdata" uib-datepicker-popup is-open="status.openedf" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions"   close-text="Close" />
+                            <button type="button" class="btn btn-default glyphicon-calendar" ng-click="open($event,'from')"></button>
+                            </div>
+
+                            <span class="data_title" >至</span>
+                           <!-- <input class="uc_data" ng-model="InvestmentPage.todata" type="DATE"/>-->
+                            <div class="rowdefine" >
+                                <input class="uc_data data"   ng-model="InvestmentPage.todata" uib-datepicker-popup is-open="status.openedt" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions"   close-text="Close" />
+                                <button type="button" class="btn btn-default glyphicon-calendar" ng-click="open($event,'to')"></button>
+                            </div>
+                            <button ng-click="queryOrders()" class="data_button">查询</button>
+                            <span class="clear"></span>
+                         </div>
+                        </div>
+                        <div ng-show="InvestmentPage.action==1"  class="divActionBuy">
+                            <div  class="select_div">
+                                <div class="select_item">
+                                    <span >全部产品</span>
+                                </div>
+                                <span class="select_to select_to_0">投资金额</span>
+								<div class="select_item marginL100 marginL91">
+                                    <my-select class="select"
+                                            options-data='orderStatusOptions'
+                                            default-select="true"
+                                            default-select-value='全部状态'
+                                            replace-select="true"
+                                            click-fun='filterStatus(t)'
+                                            class="menu">
+                                    </my-select>
+                                </div>
+                                <span class="select_to rtspan marginL90">操作</span>
+                            </div>
+                            <div class="list">
+                                <ol class="ol">
+                                    <li class="details" ng-repeat="listItem in listInvestment">
+                                        <div class="itemname">
+                                            <span class="itemn" >订单号：{{listItem.orderNo}}</span>
+                                            <span class="itembank" >{{listItem.productName}}</span>
+                                            <span class="itemn" >创建时间：{{listItem.createdAt}}</span>
+                                        </div>
+                                        <div class="itemordert">
+											<span class="itemst" >{{listItem.entrustAmount}}</span>
+                                        </div>
+                                        <div class="itemorderstatus">
+                                          <span class="itemst" >{{getStatusFromID(listItem.status)}}</span>
+                                        </div>
+                                        <div class="itemordersaction">
+											<div class="itemaction" >
+												<button ng-click="openOrderDetail(listItem.orderNo)" class="id">详情 </button>
+												<button ng-click="toPay(listItem.orderNo)" ng-show="needPay(listItem.status)" class="id pay">支付 </button>
+											</div>
+										</div>
+										<span class="clean"></span>
+                                    </li>
+                                </ol>
+                          </div>
+                        </div>
+                       <!-- <div ng-show="InvestmentPage.action==2" class="divActionSell">
+                            <div  class="select_div">
+                                <div class="select_item">
+                                    <my-select class="select"
+                                               options-data='[{index:0, label:"时间降序"}, {index:1, label:"时间升序"}]'
+                                               default-select="true"
+                                               default-select-value='全部产品'
+                                               replace-select="true"
+                                               class="menu">
+                                    </my-select>
+                                </div>
+                                <span class="select_to1">去向</span>
+                                <div class="select_item marginL155">
+                                    <my-select class="select"
+                                               options-data='[{index:0, label:"取出"}, {index:1, label:"赎回"}]'
+                                               default-select="true"
+                                               default-select-value='全部状态'
+                                               replace-select="true"
+                                               class="menu">
+                                    </my-select>
+                                </div>
+                                <span class="select_to marginL100">操作</span>
+                            </div>
+                            <div class="list">
+                                <ol class="ol">
+                                    <li class="details" ng-repeat="listItem in listSell">
+                                        <div class="itemname1">
+                                            <span class="itemst" >{{listItem.ordertime}}</span>
+                                        </div>
+                                        <div class="itemordert1">
+                                            <span class="itemst" >{{listItem.ordert}}</span>
+                                        </div>
+                                        <div class="itemorderstatus">
+                                            <span class="itemst" >{{listItem.orderstatus}}</span>
+                                        </div>
+                                        <div class="itemordersaction">
+                                            <div class="itemaction" ><button class="id">详情</button></div>
+                                        </div>
+                                        <span class="clean"></span>
+                                    </li>
+
+                                </ol>
+                            </div>
+                    </div>-->
+                        <div ng-show="InvestmentPage.action==3" class="divActionPro">
+                        <div  class="select_div">
+                            <div class="select_item">
+                                <my-select class="select"
+                                           options-data='[{index:2, label:"时间降序"}, {index:1, label:"时间升序"}]'
+                                           default-select="true"
+                                           default-select-value='时间排序'
+                                           replace-select="true"
+                                           click-fun='filterSort(t)'
+                                           class="menu">
+                                </my-select>
+                            </div>
+
+                            <div class="select_item marginL130">
+                                <my-select class="select"
+                                           options-data='[{index:1, label:"服务产品"}, {index:2, label:"信托"}, {index:3, label:"保险"}, {index:4, label:"银行理财"}, {index:5, label:"证券理财"}, {index:6, label:"股权"}, {index:7, label:"产品类别"}]'
+                                           default-select="true"
+                                           default-select-value='产品类别'
+                                           replace-select="true"
+                                           click-fun='filterStatus(t)'
+                                           class="menu">
+                                </my-select>
+                            </div>
+                            <span class="select_to2 select_to22">万分收益(%)</span>
+                            <span class="select_to marginL110 marginL90 rtspan">收益(元)</span>
+                        </div>
+                        <div class="list">
+                            <ol class="ol">
+                                <li class="details" ng-repeat="listItem in listInvestmentRevenues">
+                                    <div class="itemname1">
+                                        <span class="itemst" >{{formatedate(listItem.createdAt)}}</span>
+                                    </div>
+                                    <div class="itemordert2">
+                                        <span class="itemst" >{{listItem.productName}}</span>
+                                    </div>
+                                    <div class="itemorderstatus2">
+                                        <span class="itemst" >{{listItem.revenueRate}}</span>
+                                    </div>
+                                    <div class="itemordersaction">
+                                        <span ng-class="{true: 'itemst red', false: 'itemst green'}[listItem.revenueAmount>=0 ]" >{{getCountstatus(listItem.revenueAmount)}}</span>
+                                    </div>
+                                    <span class="clean"></span>
+                                </li>
+
+                            </ol>
+                        </div>
+                    </div>
+                        <div ng-show="InvestmentPage.action==4" class="divActionPro">
+                        <div  class="select_div">
+                            <div class="select_item">
+                                <my-select class="select"
+                                           options-data='[{index:2, label:"时间降序"}, {index:1, label:"时间升序"}]'
+                                           default-select="true"
+                                           default-select-value='时间排序'
+                                           click-fun='filterSort(t)'
+                                           replace-select="true"
+                                           class="menu">
+                                </my-select>
+                            </div>
+
+                            <div class="select_item marginL130">
+                                <my-select class="select"
+                                           options-data='[{index:0, label:"买入"}, {index:1, label:"赎回"}, {index:2, label:"到期结算"}, {index:3, label:"撤单"}, {index:4, label:"提现"}, {index:5, label:"充值"}, {index:6, label:"利息积数改变"}, {index:7, label:"罚息积数改变"}, {index:8, label:"系统红包奖励"}, {index:9, label:"交易类别"}]'
+                                           selected-index=0
+                                           default-select="true"
+                                           default-select-value='交易类别'
+                                           click-fun='filterStatus(t)'
+                                           replace-select="true"
+                                           class="menu">
+                                </my-select>
+                            </div>
+                            <span class="select_to2 cj_select_to2">来源/去向</span>
+                            <span class="select_to marginL130 cj_select_to3">余额</span>
+                        </div>
+                        <div class="list">
+                            <ol class="ol">
+                                <li class="details" ng-repeat="listItem in listInvestmentpropertyjourna">
+                                    <div class="itemname1">
+                                        <span class="itemst" >{{listItem.createdAt}}</span>
+                                    </div>
+									<div class="itemorderstatus2 cj_itemorderstatus2">
+                                        <span class="itemst" >{{formatBalanceType(listItem.balanceChangeType)}}</span>
+                                    </div>
+                                    <div class="itemordert2 cj_itemordert2">
+                                        <span ng-class="{true: 'itemst red', false: 'itemst green'}[listItem.deltaAmount>0 ]" >{{listItem.deltaAmount}}</span>
+                                    </div>
+                                   
+                                    <div class="itemordersaction cj_itemordersaction">
+                                        <span class="itemst" >{{listItem.newValue}}</span>
+                                    </div>
+                                    <span class="clean"></span>
+                                </li>
+       
+                </ol>
+            </div>
+        </div>
+        
+        
+        			<div ng-show="InvestmentPage.action==5" class="divActionPro">
+                        <div  class="select_div">
+                            <span class="sel_to5 select_dates">交易日期</span>
+                            <span class="sel_to5 select_users">收款账户</span>
+                            <span class="sel_to5 select_moneys">金额（元）</span>
+                            <span class="sel_to5 select_status">状态</span>
+                            <span class="sel_to5 select_sets">操作</span>
+                        </div>
+                        <div class="list">
+                            <ol class="ol wdw">
+                                <li class="details" ng-repeat="listItem in listwithdraw">
+                                    <div class="itemwithdraw1">
+                                        <span>{{getDatetime(listItem.createdAt)}}</span>
+                                    </div>
+                                    <div class="itemwithdraw2">
+                                        <span>{{listItem.receiver}}</span>
+                                    </div>
+                                    <div class="itemwithdrawblan2">
+                                        <span class="itemst" >{{listItem.totalAmount}}</span>
+                                    </div>
+                                    <div class="itemorderstatus2">
+                                        <span class="itemstatus st{{listItem.tradeStatus}}">{{getpaymentStatus(listItem.tradeStatus)}}</span>
+                                    </div>
+                                    <div class="itemwithdrawmore">
+                                        <button class="itemmore" ng-click="withdrawmore(listItem.tradeSerialNo)">详情</button>
+                                    </div>
+                                    <span class="clean"></span>
+                                </li>
+
+                </ol>
+            </div>
+        </div>
+        
+        
+                </div>
+                <div class="selectpage" >
+            <ol class="list_page-ol"><!--首页 0 ，上一页 1 ， p1 2 ,p2 3, p3 4 ,pT 5 ，后一页 6-->
+                <li ng-show="InvestmentPage.page1 > 1" class="list_page-li" ><button class="page-button" ng-click="getinvestmentList(0)">首页</button> </li>
+                <li ng-show="InvestmentPage.page1 > 1" class="list_page-li" ><button class="page-button" ng-click="getinvestmentList(1)">上一页</button> </li>
+                <li ng-hide="InvestmentPage.page1<=0" class="list_page-li" ><button  ng-class="{true: 'page-item-hight', false: 'page-item'}[InvestmentPage.page1==InvestmentPage.currentPage]"   ng-click="getinvestmentList(2)">{{InvestmentPage.page1}} </button></li>
+                <li ng-hide="InvestmentPage.page2<=0||InvestmentPage.page1 >= InvestmentPage.pageT" class="list_page-li" ><button ng-class="{true: 'page-item-hight', false: 'page-item'}[InvestmentPage.page2==InvestmentPage.currentPage]"  ng-click="getinvestmentList(3)">{{InvestmentPage.page2}}</button> </li>
+                <li ng-hide="InvestmentPage.page3<=0||InvestmentPage.page1 >= InvestmentPage.pageT||InvestmentPage.page2 >= InvestmentPage.pageT" class="list_page-li" ><button ng-class="{true: 'page-item-hight', false: 'page-item'}[InvestmentPage.page3==InvestmentPage.currentPage]"  ng-click="getinvestmentList(4)">{{InvestmentPage.page3}}</button> </li>
+                <li ng-show="InvestmentPage.page3 < (InvestmentPage.pageT - 1)" class="list_page-li" ><button class="page-item">...</button> </li>
+                <li ng-show="InvestmentPage.page3 < InvestmentPage.pageT" class="list_page-li" ><button ng-class="{true: 'page-item-hight', false: 'page-item'}[InvestmentPage.pageT==InvestmentPage.currentPage]" ng-click="getinvestmentList(5)">{{InvestmentPage.pageT}}</button> </li>
+                <li ng-show="InvestmentPage.page3 < InvestmentPage.pageT&&InvestmentPage.currentPage<InvestmentPage.pageT" class="list_page-li" ><button class="page-button" ng-click="getinvestmentList(6)">下一页</button> </li>
+            </ol>
+        </div>
+
+            </div>
+
+
+        <div class="userinfo-container tab3 tab-page" ng-show="showTab(2);">
+            <p class="title font-18 bold head">账户安全</p>
+            <section class="safe block">
+                <header>
+                    <p class="title">
+                        <span class="font-18 label">实名认证</span>
+                        <span class="font-12 orange" ng-show="currentUser.userAuth">已认证</span>
+                        <span class="font-12" ng-show="currentUser.userAuth">(不可更改)</span>
+                        <span class="font-12 red-pure" ng-show="!currentUser.userAuth">未验证</span>
+                        <span class="btn authentication-btn" ng-show="!currentUser.userAuth" ng-click="gotobindCard();">认证</span>
+                    </p>
+                </header>
+                <p>真实姓名:{{currentUser.accountName}}</p>
+                <p>证件类型:{{currentUser.idType}}</p>
+                <p>证件号码:{{currentUser.idNo}}</p>
+            </section>
+            <section class="safe block">
+                <header>
+                    <p class="title">
+
+                        <span class="font-18 label" >绑定手机</span>
+                        <span class="font-12 orange" ng-show="currentUser.userBindPhone">已绑定</span>
+                        <span class="font-12 red-pure" ng-show="!currentUser.userBindPhone">未绑定</span>
+                        <span class="btn authentication-btn" ng-show="!currentUser.userBindPhone" ng-click="gotobindCard();">绑定手机</span>
+                        <!-- <span class="btn authentication-btn" ng-show="currentUser.userBindPhone">修改</span> -->
+                    </p>
+                </header>
+                <p class="font-14">手机号码:{{currentUser.phoneNumber}}</p>
+            </section>
+            <section class="safe block">
+                <header>
+                    <p class="title">
+                        <span class="font-18 label">交易密码</span>
+                        <span class="font-12 orange" ng-show="currentUser.hasSetTradingPassword">已设定</span>
+                        <span class="font-12 red-pure" ng-show="!currentUser.hasSetTradingPassword">未设定</span>
+                        <span class="btn authentication-btn" ng-show="!currentUser.hasSetTradingPassword" ng-click="gotoSetTradeKey();">设置支付密码</span>
+                        <span class="btn authentication-btn" ng-show="currentUser.hasSetTradingPassword" ng-click="gotoChangeTradeKey();">修改交易密码</span>
+                    </p>
+                </header>
+                <p class="forget-tip"><span class="forget right" ng-show="currentUser.hasSetTradingPassword" ng-click="gotoForgetTradeKey();">忘记交易密码?</span></p>
+            </section>
+            <section class="safe block">
+                <header>
+                    <p class="title">
+                        <span class="font-18 label">我的银行卡</span>
+                        <span class="font-12 orange" ng-show="currentUser.cardList.length > 0">已绑定{{currentUser.cardList.length}}张</span>
+                        <span class="font-12 red-pure" ng-show="currentUser.cardList.length <= 0">未绑定</span>
+                        <span class="btn authentication-btn" ng-show="currentUser.cardList.length <= 0" ng-click="gotoBindCard();">添加银行卡</span>
+                    </p>
+                </header>
+                <p class="font-14" ng-repeat="card in currentUser.cardList">
+                    {{card.cardTitle}}
+                </p>
+            </section>
+        </div>
+        <div class="userinfo-container tab4 tab-page" ng-show="showTab(3);">
+            DIV4
+        </div>
+        </div>
+    </div>
+</div>
+
+</div>

@@ -1,0 +1,162 @@
+.j .tradepw{
+    height: 100%;
+    width: 1200px;
+	margin:50px auto;
+    background-color: #ffffff;
+    padding-bottom:20px;
+}
+.j h2.tradetitle{
+	width:1100px;
+	margin:0px auto;
+	font-size:25px;
+	line-height:30px;
+	font-weight:normal;
+	border-bottom:2px solid #F90;
+	padding-top:35px;
+	padding-bottom:5px;
+}
+
+.j .trade_c{
+	width:1100px;
+	margin:0px auto;
+}
+.j .input1_li{
+    display: inline-block;
+    line-height: 50px;
+    text-align: left;
+	width:100%;
+	margin-bottom: 10px;
+}
+.j .r_marge{
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+	color:#777777;
+}
+
+.j .r_input_d{
+    width: 258px;
+    height: 45px;
+    display: inline-block;
+	border-radius:5px;
+}
+
+.j span.input1_message{
+	color:#888888;
+	font-size:12px;
+}
+
+.j .r_input{
+    width:250px ;
+    height: 35px;
+    margin: 0px;
+    margin-bottom: 0px;
+	line-height:35px;
+	vertical-align:middle;
+	border-radius:3px;
+	font-size:14px;
+	border:1px solid #F60;
+	font-family:"Microsoft YaHei UI";
+	padding-left:3px;
+}
+.j .r_i_c{
+ width:110px ;
+    height: 35px;
+	line-height:35px;
+    margin: 0px;
+	font-size:14px;
+    margin-bottom: 0px;
+	vertical-align:middle;
+	border-radius:3px;border:1px solid #F60;	
+}
+
+.j .r_i_cc{
+    width: 130px;
+	vertical-align:middle;
+	
+    margin-left: 10px;
+    height: 37px;
+	line-height:37px;
+    display: inline-block;
+    background-color: #00A4FB;
+    color: #FFFFFF;
+    font-size: 14px;
+	border-radius:3px;
+    border: none;
+    text-align: center;
+	transition:0.5s all;
+	 cursor:pointer;
+}
+
+.j .r_i_cc:hover{
+	background-color: #32B7FA;
+	transition:0.5s all;
+}
+.j .r_i_cc:active{
+	background-color: #0099E6;
+}
+
+.j .buttonColor{
+   margin-top:20px;
+    background-color: #FA9600;
+    BORDER: none;
+    font-size: 16px;
+    /* font-style: oblique; */
+    font-weight: bold;
+    color: #ffffff;
+	cursor:pointer;
+	transition:0.5s all;
+	
+}
+.j .r_i_cc:disabled{
+	background:#cccccc;
+	transition:0.5s all;
+}
+
+.j .error{
+    display: block;
+    background-color: #ffffcc;
+    margin-top: 10px;
+}
+.j .error_div{
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+	padding-left:3px;
+    background-color: #ffffcc;
+}
+
+.j .input1_icon
+{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-image:url("../img/loginImg.png");
+    background-position:0 -150px;
+    margin-left: 2px;
+    margin-left: 2px;
+    BORDER-RADIUS: 11PX; 
+	vertical-align:middle;
+}
+.j .m
+{
+    display: inline-block;
+    color: #ff0000;
+
+}
+.j .input1_iconok
+{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-image:url("../img/loginImg.png");
+    background-position:-31px -150px;
+    margin-left: 2px;
+    margin-left: 2px;
+    BORDER-RADIUS: 11PX;
+	vertical-align:middle;
+}
+
+.j #p1{margin-top:40px;}

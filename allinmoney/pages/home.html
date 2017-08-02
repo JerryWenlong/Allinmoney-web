@@ -1,0 +1,448 @@
+<div class="menu-container">
+<div class="w">
+	<div class="category-container w" ng-controller="categoryController" ng-mouseleave="hideSubCategory();">
+		<!-- <div class="category">
+			<div class="dd">
+				<div class="item" ng-repeat="item in categoryList" ng-mouseover="showSubCategory(this, $event);">
+					<span>
+						<a target="_blank">{{item.category_name}}</a>
+					</span>
+				</div>
+			</div>
+		</div> -->
+		<div class="advertisement-container">
+				<div class="slide" id="slide" >
+				</div>
+		</div>
+		<!-- <div class="subcategory" ng-repeat="subcategory_item in hash_category_selected">
+			<div class="animate-show" ng-show="isSelected(subcategory_item)" ng-mouseleave="hideSubCategory();">
+				<p>{{selectedCategory}}</p>
+				<ul>
+					<li ng-repeat="subitem in subcategory_item.sublist">
+						{{subitem.sub_category_name}}
+					</li>
+				</ul>
+			</div>
+		</div> -->
+		<!-- <div class="notification-container">
+			<div class="role-container">
+				<div class="img-container">
+					<ul>
+						<li>
+							<span class="part1">我要理财</span>
+							<span class="part2">1,236,980人 正在理财</span>
+						</li>
+						<li>
+							<span class="part1">我是理财师</span>
+							<span class="part2">5678人专业指导</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="quick-search-container">
+				<p><span>快速查询</span></p>
+				<div>
+					<ul class="search-input">
+						<li class="search-mount">
+							<my-select 
+							options-data='[{index:0, label:"5万"}, {index:1, label:"10万"}]' 
+							selected-index="searchMount" 
+							default-select="true" 
+							default-select-value="选择投资金额" 
+							replace-select="true"
+							ng-class='{true:"hideBorderButtom", false:"showBorderButton"}[searchMount]'
+							class="menu">
+							</my-select>
+							<span class="rb-triangle">
+						</li>
+						<li class="search-endtime">
+							<my-select 
+							options-data='[{index:0, label:"5个月"}, {index:1, label:"10个月"}]' 
+							selected-index="searchTimeEnd" 
+							default-select="true" 
+							default-select-value="选择投资期限" 
+							replace-select="true"
+							ng-class='{true:"hideBorderButtom", false:"showBorderButton"}[searchTimeEnd]'
+							class="menu">
+							</my-select>
+							<span class="rb-triangle">
+						</li>
+					</ul>
+					<span class="search-btn">查询</span>
+					<span class="clear"></span>
+				</div>
+			</div>
+			<div class="tips-container">
+				<p>
+					<span>广而告之</span>
+					<span>></span>
+					<span class="more">更多</span>
+				</p>
+				<ul>
+					<li><a>[系统] 12月20日晚23:00系统维护通知</a></li>
+					<li><a>[公告] 金融社区开放, 理财专家随时答</a></li>
+					<li><a>[推广] 百万财富不是梦, 每天一步稳步</a></li>
+				</ul>
+			</div>
+		</div> -->
+		<span class='clear'></span>
+	</div>
+
+</div>
+</div>
+
+<div class="homepage"> 
+
+<div class="fixedPannel">
+	<div>
+		<img src="img/2D_code_130_130.png">
+	</div>
+</div>
+
+<div class="w" ng-controller="recommendController">
+	<div class="recommend-container container">
+		<ul class="recommend-list">
+			<li ng-repeat="item in recommendProdList">
+				<div ng-model="item" class="recommend-pannel">
+					<p class="title text-overflow"><a href="{{item.href}}">{{item.detail.title}}</a></p>
+					<ul>
+						<li class="tag">
+							<span ng-repeat="tag in item.tagsList" class="{{tag.className}}">{{tag.text}}</span>
+						</li>
+					</ul>
+					<ol class="details">
+						<li class="expected-revenue">
+							<p>预期收益</p>
+							<div class="value">
+								<span class="font-40 bold orange number">{{item.detail.expected_revenue.value}}</span>
+								<span class="font-18 bold orange unit">{{item.detail.expected_revenue.unit}}</span>
+							</div>
+						</li>
+						<li class="start-purchase">
+							<p>起购金额</p>
+							<div class="value">
+								<span class="font-22 number">{{item.detail.min_sub_amount.value}}</span>
+								<span class="font-14 unit">{{item.detail.min_sub_amount.unit}}</span>
+							</div>
+						</li>
+						<li class="end-time">
+							<p>期限</p>
+							<div class="value">
+								<span class="font-22 number">{{item.detail.end_time.numb}}</span>
+								<span class="font-14 unit">{{item.detail.end_time.unit}}</span>
+							</div>
+						</li>
+						<span class="clear"></span>
+					</ol>
+					<div class="buy-button font-18">
+						<a class="btn allinmoney-button-b64" ng-click="gotoDetail(item.href);"><span>购买</span></a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="left-pannel">
+		<div class="bank-fund-container container">
+			<p class="title">
+				<span>{{bankContainerTitle}}</span>
+				<a class="right more btn" href="#/finacial/bank#top">更多</a>
+			</p>
+			<div class="bank-fund-pannel">
+				<div class="column column1">
+					<p class="title text-overflow"><a href="{{bankFinancing_first.href}}">{{bankFinancing_first.detail.title}}</a></p>
+					<ul>
+						<li class="tag">
+							<span ng-repeat="tag in bankFinancing_first.tagsList" class="{{tag.className}}">{{tag.text}}</span>
+						</li>
+					</ul>
+					<div class="details">
+						<ol>
+							<li>
+								<span>起购金额:</span>
+								<span>{{bankFinancing_first.detail.min_sub_amount.value}}</span>
+								<span>{{bankFinancing_first.detail.min_sub_amount.unit}}</span>
+							</li>
+							<li>
+								<span>期限:</span>
+								<span>{{bankFinancing_first.detail.end_time.numb}}</span>
+								<span>{{bankFinancing_first.detail.end_time.unit}}</span>
+							</li>
+							<li>
+								<span>收益分配方式:</span>
+								<span>{{bankFinancing_first.detail.dividendType}}</span>
+							</li>
+							<li>
+								<span>投资进度:</span>
+								<span>{{bankFinancing_first.detail.productProgress.value}}{{bankFinancing_first.detail.productProgress.unit}}</span>
+							</li>
+						</ol>
+						<ul class="expected-revenue">
+							<li><span>预期年收益率</span></li>
+							<li>
+								<span class="font-40 bold orange number">{{bankFinancing_first.detail.expected_revenue.value}}</span>
+								<span class="font-18 bold orange unit">{{bankFinancing_first.detail.expected_revenue.unit}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="buy-button font-18">
+						<span class="btn allinmoney-button-b64" ng-class="{true:'disabled'}[checkRecommend(bankFinancing_first)]" ng-click="gotoDetail(bankFinancing_first.href);">购买</span>
+					</div>
+				</div>
+				<div class="column column2">
+					<p class="title text-overflow"><a href="{{bankFinancing_second.href}}">{{bankFinancing_second.detail.title}}</a></p>
+					<div class="details font-14">
+						<ol>
+							<li>
+								<span>预期年收益率</span>
+								<span class="font-18 orange">{{bankFinancing_second.detail.expected_revenue.value}}{{bankFinancing_second.detail.expected_revenue.unit}}</span>
+							</li>
+							<li>
+								<span>起购金额:</span>
+								<span>{{bankFinancing_second.detail.min_sub_amount.value}}</span>
+								<span>{{bankFinancing_second.detail.min_sub_amount.unit}}</span>
+							</li>
+							<li>
+								<span>期限:</span>
+								<span>{{bankFinancing_second.detail.end_time.numb}}</span>
+								<span>{{bankFinancing_second.detail.end_time.unit}}</span>
+							</li>
+							<li>
+								<span>收益分配方式:</span>
+								<span>{{bankFinancing_second.detail.dividendType}}</span>
+							</li>
+						</ol>
+					</div>
+					<div class="buy-button font-18">
+						<span class="btn allinmoney-button-b64" ng-class="{true:'disabled'}[checkRecommend(bankFinancing_second)]" ng-click="gotoDetail(bankFinancing_second.href);">购买</span>
+					</div>
+				</div>
+				<div class="column column3">
+					<p class="title text-overflow"><a href="{{bankFinancing_third.href}}">{{bankFinancing_third.detail.title}}</a></p>
+					<div class="details font-14">
+						<ol>
+							<li>
+								<span>预期年收益率</span>
+								<span class="font-18 orange">{{bankFinancing_third.detail.expected_revenue.value}}{{bankFinancing_third.detail.expected_revenue.unit}}</span>
+							</li>
+							<li>
+								<span>起购金额:</span>
+								<span>{{bankFinancing_third.detail.min_sub_amount.value}}</span>
+								<span>{{bankFinancing_third.detail.min_sub_amount.unit}}</span>
+							</li>
+							<li>
+								<span>期限:</span>
+								<span>{{bankFinancing_third.detail.end_time.numb}}</span>
+								<span>{{bankFinancing_third.detail.end_time.unit}}</span>
+							</li>
+							<li>
+								<span>收益分配方式:</span>
+								<span>{{bankFinancing_third.detail.dividendType}}</span>
+							</li>
+						</ol>
+					</div>
+					<div class="buy-button font-18">
+						<span class="btn allinmoney-button-b64" ng-class="{true:'disabled'}[checkRecommend(bankFinancing_third)]"  ng-click="gotoDetail(bankFinancing_third.href);">购买</span>
+					</div>
+				</div>
+				<span class="clear"></span>
+			</div>
+		</div>
+		<div class="bank-fund-container container">
+			<p class="title">
+				<span>{{assetsContainerTitle}}</span>
+				<a class="right more btn" href="#/finacial/assets#top">更多</a>
+			</p>
+			<div class="bank-fund-pannel">
+				<div class="column column1">
+					<p class="title text-overflow"><a href="{{assets_first.href}}">{{assets_first.detail.title}}</a></p>
+					<ul>
+						<li class="tag">
+							<span ng-repeat="tag in assets_first.tagsList" class="{{tag.className}}">{{tag.text}}</span>
+						</li>
+					</ul>
+					<div class="details">
+						<ol>
+							<li>
+								<span>起购金额:</span>
+								<span>{{assets_first.detail.min_sub_amount.value}}</span>
+								<span>{{assets_first.detail.min_sub_amount.unit}}</span>
+							</li>
+							<li>
+								<span>期限:</span>
+								<span>{{assets_first.detail.end_time.numb}}</span>
+								<span>{{assets_first.detail.end_time.unit}}</span>
+							</li>
+							<li>
+								<span>收益分配方式:</span>
+								<span>{{assets_first.detail.dividendType}}</span>
+							</li>
+							<li>
+								<span>投资进度:</span>
+								<span>{{assets_first.detail.productProgress.value}}{{assets_first.detail.productProgress.unit}}</span>
+							</li>
+						</ol>
+						<ul class="expected-revenue">
+							<li><span>预期年收益率</span></li>
+							<li>
+								<span class="font-40 bold orange number">{{assets_first.detail.expected_revenue.value}}</span>
+								<span class="font-18 bold orange unit">{{assets_first.detail.expected_revenue.unit}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="buy-button font-18">
+						<span class="btn allinmoney-button-b64"  ng-class="{true:'disabled'}[checkRecommend(assets_first)]"  ng-click="gotoDetail(assets_first.href);">购买</span>
+					</div>
+				</div>
+				<div class="column column2">
+					<p class="title text-overflow"><a href="{{assets_second.href}}">{{assets_second.detail.title}}</a></p>
+					<div class="details font-14">
+						<ol>
+							<li>
+								<span>预期年收益率</span>
+								<span class="font-18 orange">{{assets_second.detail.expected_revenue.value}}{{assets_second.detail.expected_revenue.unit}}</span>
+							</li>
+							<li>
+								<span>起购金额:</span>
+								<span>{{assets_second.detail.min_sub_amount.value}}</span>
+								<span>{{assets_second.detail.min_sub_amount.unit}}</span>
+							</li>
+							<li>
+								<span>期限:</span>
+								<span>{{assets_second.detail.end_time.numb}}</span>
+								<span>{{assets_second.detail.end_time.unit}}</span>
+							</li>
+							<li>
+								<span>收益分配方式:</span>
+								<span>{{assets_second.detail.dividendType}}</span>
+							</li>
+						</ol>
+					</div>
+					<div class="buy-button font-18">
+						<span class="btn allinmoney-button-b64"  ng-class="{true:'disabled'}[checkRecommend(assets_second)]" ng-click="gotoDetail(assets_second.href);">购买</span>
+					</div>
+				</div>
+				<div class="column column3">
+					<p class="title text-overflow"><a href="{{assets_third.href}}">{{assets_third.detail.title}}</a></p>
+					<div class="details font-14">
+						<ol>
+							<li>
+								<span>预期年收益率</span>
+								<span class="font-18 orange">{{assets_third.detail.expected_revenue.value}}{{assets_third.detail.expected_revenue.unit}}</span>
+							</li>
+							<li>
+								<span>起购金额:</span>
+								<span>{{assets_third.detail.min_sub_amount.value}}</span>
+								<span>{{assets_third.detail.min_sub_amount.unit}}</span>
+							</li>
+							<li>
+								<span>期限:</span>
+								<span>{{assets_third.detail.end_time.numb}}</span>
+								<span>{{assets_third.detail.end_time.unit}}</span>
+							</li>
+							<li>
+								<span>收益分配方式:</span>
+								<span>{{assets_third.detail.dividendType}}</span>
+							</li>
+						</ol>
+					</div>
+					<div class="buy-button font-18">
+						<span class="btn allinmoney-button-b64" ng-class="{true:'disabled'}[checkRecommend(assets_third)]"  ng-click="gotoDetail(assets_third.href);">购买</span>
+					</div>
+				</div>
+				<span class="clear"></span>
+			</div>
+		</div>
+		<div class="product-list-container container">
+			<p class="title">
+				<span>{{trustFundContainerTitle}}</span>
+				<a class="right more btn" href="#/finacial/trust#top">更多</a>
+			</p>
+			<div class="list">
+				<ul>
+					<li class="title">
+						<span class="clumn1 clumn">产品名称</span>
+						<span class="clumn2 clumn">机构</span>
+						<span class="clumn3 clumn">预计年化率</span>
+						<span class="clumn4 clumn">期限</span>
+						<span class="clumn5 clumn">起始金额</span>
+					</li>
+					<li class="details" ng-repeat="listItem in fundProductList">
+						<span class="clumn1 clumn">{{listItem.detail.title}}</span>
+						<span class="clumn2 clumn">{{listItem.detail.company}}</span>
+						<span class="clumn3 clumn bold">{{listItem.detail.expected_revenue.value}}{{listItem.detail.expected_revenue.unit}}</span>
+						<span class="clumn4 clumn">{{listItem.detail.end_time.numb}}{{listItem.detail.end_time.unit}}</span>
+						<span class="clumn5 clumn">{{listItem.detail.min_sub_amount.value}}</span>
+						<a href="{{listItem.href}}"><span class="detail-btn clumn6 clumn allinmoney-button-b64">购买</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="right-pannel">
+		<div class="hot-recommend-container container">
+			<p class="title">
+				<span>{{hotContainerTitle}}</span>
+				<!-- <span class="right more">更多</span> -->
+			</p>
+			<div class="picture">
+				<a href="#/"><img /></a>
+			</div>
+			<div class="list">
+				<ul>
+					<li ng-repeat="hotProd in hotProductList">
+						<a  ng-click="gotoDetail(hotProd.href);" style="display:inline-block;width:100%;height:100%;cursor:pointer;">
+							<p class="p1">
+								<span class="title left font-16 text-overflow">{{hotProd.detail.title}}</span>
+								<span class="expected_title right font-14">预期年收益率</span>
+							</p>
+							<div class="money">
+								<span class="start_purchase left">起购金额:{{hotProd.detail.min_sub_amount.value}}{{hotProd.detail.min_sub_amount.unit}}</span>
+								<div class="expected_revenue orange right">
+									<span class="number font-17 bold">{{hotProd.detail.expected_revenue.value}}</span>
+									<span class="unit font-14">{{hotProd.detail.expected_revenue.unit}}</span>
+									<!-- -
+									<span class="number font-17 bold">{{hotProd.expected_revenue.end_value}}</span>
+									<span class="unit font-14">{{hotProd.expected_revenue.unit}}</span> -->
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="ranking-list-container container">
+			<p class="title">
+				<span>购买排行榜</span>
+			</p>
+			<div class="list text-overflow">
+				<ul>
+					<li class="title">
+						<span class="clumn1 clumn">排名</span>
+						<span class="clumn2 clumn">用户</span>
+						<span class="clumn3 clumn">成交金额</span>
+					</li>
+					<li class="details" ng-repeat="listItem in rankingList">
+						<p class="clumn1 clumn bold"><span class="icon" ng-class="{1: 'icon_01', 2: 'icon_02', 3: 'icon_03'}[listItem.order]">{{listItem.order}}</span></p>
+						<span class="clumn2 clumn">{{listItem.userName}}</span>
+						<span class="clumn3 clumn">{{listItem.mount}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="finacyClassContainer container">
+			<p class="title">
+				<span>理财学堂</span>
+			</p>
+			<a href="#/novice#top">
+				<img src="img/novice_guide.jpg" />
+			</a>
+		</div>
+	</div>
+
+	<div class="cooperation">
+		
+	</div>
+</div>
+
+</div>

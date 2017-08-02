@@ -1,0 +1,130 @@
+<div class="finacial-page">
+	<div class="menu-container">
+		<div class="w">
+			<div class="advertisement-container">
+				<div class="slide" id="slide" >
+				</div>
+			</div>
+			<div class="advertisement-product-container">
+				<div class="slide-product" id="slide-product">
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div class="filter-pannel">
+		<div class="w">
+			<ul class="bread-nav">
+				<li>
+					<span class="title orange texthover" ng-click="changeLocation(locationList[0].href);">{{locationList[0].title}}</span>
+				</li>
+				<li>
+					<span class="icon">></span>
+					<span class="title">{{locationList[1].title}}</span>
+				</li>
+			</ul>
+
+			<div class="filter-container">
+				<ul>
+					<li ng-repeat="filter in filterList" class="filter-line">
+						<span class="filter-title">{{filter.title}}:</span>
+
+						<span class="filter-item btn" 
+						ng-repeat="item in filter.selectList | filter: {code: 'unlimited' }" 
+						ng-click="filterSet(filter.index, item.index);"
+						ng-class="{true:'active'}[item.index == selectFilter(filter)]">{{item.title}}</span>
+
+						<div class="expand-filter-pannel">
+							<span class="expand-btn btn" ng-show="(filter.lines.length > 1) && filter.expand_status == 0" ng-click="expandFilter(filter.index, 1);">更多+</span>
+							<span class="expand-btn btn" ng-show="(filter.lines.length > 1) && filter.expand_status == 1" ng-click="expandFilter(filter.index, 0);">收起-</span>
+							<div ng-repeat="line in filter.lines" class="line-pannel" ng-class="{true:'first-line'}[line == 1]" ng-show="(line == 1) || (filter.expand_status == 1)">
+								<span class="filter-item btn" 
+								ng-repeat="item in filter.selectList | filter: {lineNum: line}" 
+								ng-click="filterSet(filter.index, item.index);"
+								ng-class="{true:'active'}[item.index == selectFilter(filter)]">{{item.title}}</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+                <div class="filter-warp" ng-show="searchingData"></div>		
+			</div>
+		</div>
+	</div>
+	
+    <div class="finacial-sort w">
+        <div class="finacial-sort-bar" ng-init="getfinacialShowListclick('annualizedRate',FinacialProductPage.currentSort,FinacialProductPage.perPage,1,-1)">
+            <ol class="finacial-sort-ol">
+
+                <li  class="finacial-sort-item column1"><div class="finacial-sort-title"><button  ng-click="getfinacialShowListclick('annualizedRate',FinacialProductPage.currentSort,FinacialProductPage.perPage,1,-1)"  class="spanbutton btn">收益</button>
+                    <span ng-show="FinacialProductPage.currentSort==0&&'annualizedRate'==FinacialProductPage.currentfeild" class="finacial-sort-title-img"></span>
+                    <span ng-show="FinacialProductPage.currentSort!=0&&'annualizedRate'==FinacialProductPage.currentfeild" class="finacial-sort-title-imgB"></span></div></li>
+                <li  class="finacial-sort-item column2"><div class="finacial-sort-title"><button ng-click="getfinacialShowListclick('minSubBalance',FinacialProductPage.currentSort,FinacialProductPage.perPage,1,-1)" class="spanbutton btn"> 起投金额</button>
+                    <span ng-show="FinacialProductPage.currentSort==0&&'minSubBalance'==FinacialProductPage.currentfeild" class="finacial-sort-title-img"></span>
+                    <span ng-show="FinacialProductPage.currentSort!=0&&'minSubBalance'==FinacialProductPage.currentfeild" class="finacial-sort-title-imgB"></span></div></li>
+                <li  class="finacial-sort-item column3"><div class="finacial-sort-title"><button ng-click="getfinacialShowListclick('investmentPeriod',FinacialProductPage.currentSort,FinacialProductPage.perPage,1,-1)" class="spanbutton btn">理财期限</button>
+                    <span ng-show="FinacialProductPage.currentSort==0&&'investmentPeriod'==FinacialProductPage.currentfeild" class="finacial-sort-title-img"></span>
+                    <span ng-show="FinacialProductPage.currentSort!=0&&'investmentPeriod'==FinacialProductPage.currentfeild" class="finacial-sort-title-imgB"></span></div></li>
+                
+               <!--  <li  id=""class="finacial-sort-item finacial-sort-prduct floatR"><span>可购买产品</span></li>
+                <li  class="finacial-sort-item floatR"><input type="checkbox" /></li> -->
+
+            </ol>
+        </div>
+
+        <div class="finacial-sort-list">
+            <ol class="finacial-sort-list-ol">
+                <li class="details" ng-repeat="listItem in finacialList">
+                    <span class="itemfinacial0" ng-click="gotoDetail(listItem);">{{listItem.title}}</span>
+                    <div class="item_div1">
+                        <div class="itemfinacial1">
+                            <span class="itemfinacial1C">{{listItem.expected_revenue['value']}}</span>
+                            <span class="itemfinacialU">{{listItem.expected_revenue['unit']}}</span>
+                        </div>
+                        <span class="itemfinacial1T">年化收益率</span>
+                    </div>
+
+                    <div class="item_div2">
+                     <div class="itemfinacial2">
+                       <span class="itemfinacial2C">{{listItem.min_sub_amount['value']}}</span>
+                       <span class="itemfinacialU itemPColor">{{listItem.min_sub_amount['unit']}}</span>
+                    </div>
+                        <span class="itemfinacial2T">起购金额</span>
+                    </div>
+
+                    <div class="item_div3">
+                        <div class="itemfinacial3">
+                    <span class="itemfinacial3C">{{listItem.end_time['numb']}}</span>
+                     <span class="itemfinacialU itemPColor">{{listItem.end_time['unit']}}</span>
+                        <span class="itemfinacial3T">期限</span>
+                            </div>
+                    </div>
+
+                    <div class="item_div4">
+                        <button class="itemfinacial4 allinmoney-button-c64" ng-click="gotoDetail(listItem);">购买</button>
+                        <span class="itemfinacial5" ng-click="gotoDetail(listItem);"><a href=''>查看详情</a>></span>
+                    </div>
+
+
+                </li>
+
+            </ol>
+            <div ng-show="searchingData" class="filter-warp">
+                
+            </div>
+        </div>
+
+        <div class="finacial-sort-page-button-div" ng-show="FinacialProductPage.isload">
+            <ol class="finacial-sort-list_page-ol"><!--首页 0 ，上一页 1 ， p1 2 ,p2 3, p3 4 ,pT 5 ，后一页 6-->
+                <li ng-show="FinacialProductPage.page1 > 1" class="finacial-sort-list_page-li" ><button class="finacial-sort-page-button" ng-click="getfinacialList(0)">首页</button> </li>
+                <li ng-show="FinacialProductPage.page1 > 1" class="finacial-sort-list_page-li" ><button class="finacial-sort-page-button" ng-click="getfinacialList(1)">上一页</button> </li>
+                <li ng-hide="FinacialProductPage.page1<=0"class="finacial-sort-list_page-li" ><button  ng-class="{true: 'finacial-sort-page-item-hight', false: 'finacial-sort-page-item'}[FinacialProductPage.page1==FinacialProductPage.currentPage]"   ng-click="getfinacialList(2)">{{FinacialProductPage.page1}} </button></li>
+                <li ng-hide="FinacialProductPage.page2<=0||FinacialProductPage.page1 >= FinacialProductPage.pageT" class="finacial-sort-list_page-li" ><button ng-class="{true: 'finacial-sort-page-item-hight', false: 'finacial-sort-page-item'}[FinacialProductPage.page2==FinacialProductPage.currentPage]"  ng-click="getfinacialList(3)">{{FinacialProductPage.page2}}</button> </li>
+                <li ng-hide="FinacialProductPage.page3<=0||FinacialProductPage.page1 >= FinacialProductPage.pageT||FinacialProductPage.page2 >= FinacialProductPage.pageT" class="finacial-sort-list_page-li" ><button ng-class="{true: 'finacial-sort-page-item-hight', false: 'finacial-sort-page-item'}[FinacialProductPage.page3==FinacialProductPage.currentPage]"  ng-click="getfinacialList(4)">{{FinacialProductPage.page3}}</button> </li>
+                <li ng-show="FinacialProductPage.page3 < (FinacialProductPage.pageT - 1)" class="finacial-sort-list_page-li" ><button class="finacial-sort-page-item">...</button> </li>
+                <li ng-show="FinacialProductPage.page3 < FinacialProductPage.pageT" class="finacial-sort-list_page-li" ><button class="finacial-sort-page-item" ng-click="getfinacialList(5)">{{FinacialProductPage.pageT}}</button> </li>
+                <li ng-show="FinacialProductPage.page3 < FinacialProductPage.pageT&&FinacialProductPage.currentPage<FinacialProductPage.pageT"class="finacial-sort-list_page-li" ><button class="finacial-sort-page-button" ng-click="getfinacialList(6)">下一页</button> </li>
+            </ol>
+        </div>
+    </div>
+
+</div>

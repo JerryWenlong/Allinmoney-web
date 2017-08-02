@@ -1,0 +1,248 @@
+.clear{clear:both;}
+.aboutus{
+	width:1198px;
+	margin:20px auto 40px;
+	background:#FFF;
+}
+.aboutus_banner{
+	width:1198px;
+	height:360px;
+	text-align:center;
+	background:url(../img/about_top.jpg) no-repeat;
+}
+.aboutus_banner span{
+	display:inline-block;
+	font-size:58px;
+	font-weight:normal;
+	color:#fa9600;
+	margin-top:120px;
+}
+.aboutus_nav{
+	
+	width:1198px;
+	height:51px;
+	background:#fff;
+}
+.aboutus_nav .navlist{
+	position:fixed;
+	top:0;
+}
+
+#navs{
+	text-align:center;
+	color:#ccc;
+	height:51px;
+	width:1198px;
+	background:#fff;
+	border-bottom:1px solid #fa9600;
+}
+#navs span{
+	display:inline-block;
+	font-size:16px;
+	padding:0 25px;
+	line-height:50px;
+	color:#666;
+	cursor:pointer;
+	transition:0.2s all;
+}
+#navs span.active{
+	color:#fa9600;
+	transition:0.2s all;
+}
+
+.aboutcompany{
+	width:1000px;
+	margin:80px auto 95px;
+}
+.aboutcompany h2{
+	font-size:30px;
+	color:#333;
+	font-weight:normal;
+	margin-bottom:50px;
+}
+.aboutcompany p{
+	font-size:14px;
+	color:#666;
+	line-height:30px;
+	margin-bottom:30px;
+}
+
+.culture{
+	background:url(../img/adobe_bg.jpg) no-repeat;
+	width:100%;
+	padding-top:80px;
+	height:466px;
+}
+.culture_content{
+	width:1000px;
+	margin:0 auto;
+}
+.culture_content h2{
+	font-size:30px;
+	color:#333;
+	font-weight:normal;
+	margin-bottom:80px;
+}
+.culture_content ul li{
+	float:left;
+	width:25%;
+	text-align:center;
+	
+}
+.culture_content ul li span{
+	display:block;
+	font-size:18px;
+	color:#666;
+}
+.culture_content ul li span.cim{
+	display:inline-block;
+	width:160px;
+	height:160px;
+	margin-bottom:50px;
+}
+.culture_content ul li span.c_img1{
+	background:url(../img/qiep.png) 0 0 no-repeat;
+}
+.culture_content ul li span.c_img2{
+	background:url(../img/qiep.png) -170px 0 no-repeat;
+}
+.culture_content ul li span.c_img3{
+	background:url(../img/qiep.png) -340px 0 no-repeat;
+}
+.culture_content ul li span.c_img4{
+	background:url(../img/qiep.png) -510px 0 no-repeat;
+}
+
+.background{
+	width:1000px;
+	margin:0 auto;
+	padding-top:80px;
+}
+.background h2{
+	margin-bottom:45px;
+	font-size:30px;
+	color:#333;
+	font-weight:normal;
+}
+
+.background .bgs{
+	margin-bottom:50px;
+}
+.background .bgs .c_logo{
+	width:301px;
+	float:left;
+	text-align:center;
+}
+.background .bgs .c_logo span{
+	margin-top:45px;
+}
+.background .bgs .comp_logo1 span{
+	display:inline-block;
+	width:93px;
+	height:93px;
+	background:url(../img/qiep.png) -730px 0 no-repeat;
+}
+.background .bgs .comp_logo2 span{
+	display:inline-block;
+	width:240px;
+	height:93px;
+	background:url(../img/qiep.png) -830px 0 no-repeat;
+}
+.ab_company{
+	float:left;
+	border-left:1px solid #ccc;
+	padding-left:80px;
+	width:520px;
+	font-size:14px;
+	color:#666;
+	
+	line-height:40px;
+}
+
+.team{
+	width:100%;
+	background:#f9f9f9;
+	padding-top:80px;
+	padding-bottom:125px;
+}
+.tm{
+	width:1000px;
+	margin:0 auto;
+}
+.team h2{
+	margin-bottom:65px;
+	font-size:30px;
+	color:#333;
+	font-weight:normal;
+}
+.tmlist{
+	margin-left:65px;
+}
+.team h1{
+	font-size:22px;
+	color:#FA9600;
+	margin-bottom:35px;
+	margin-top:70px;
+	font-weight:normal;
+}
+.team ul li{
+	line-height:40px;
+	height:40px;
+	color:#666;
+}
+.team ul li span{
+	display:inline-block;
+	width:10px;
+	height:10px;
+	background:url(../img/qiep.png) -700px 0 no-repeat;
+	margin-right:12px;
+}
+
+.contactus{
+	padding-top:80px;
+	width:1000px;
+	margin:0 auto;
+}
+.contactus .contact_left{
+	float:left;
+	margin-bottom:125px;
+}
+.contactus .contact_left h2{
+	margin-bottom:50px;
+	font-size:30px;
+	color:#333;
+	font-weight:normal;
+}
+.contactus .contact_left ul li{
+	line-height:50px;
+	font-size:14px;
+	color:#666;
+}
+.contactus .contact_map{
+	float:left;
+	margin-left:40px;}
+	
+	
+.novice{
+	width:100%;
+	border-top:1px solid #f1f1f1;
+}	
+
+.noviceimg{
+	width:100%;
+	min-width:1200px;
+	
+}
+
+.ni1{
+	background:url(../img/01.png) no-repeat center top;height:400px;
+}
+.ni2{
+	background:url(../img/02.png) no-repeat center top;height:440px;
+}
+.ni3{
+	background:url(../img/03.png) no-repeat center top;height:510px;
+}
+.ni4{
+	background:url(../img/04.png) no-repeat center top;height:580px;
+}

@@ -1,0 +1,76 @@
+
+<form name='trade_form' class="j" ng-init="show_p=0" novalidate>
+
+    <div class="tradepw" >
+        <h2 class="tradetitle">交易密码设定</h2>
+        
+        <div class="trade_c">
+        
+            <div class="error_div">
+                <div  class="error"  ng-show="tradepw.errormessage">
+    
+                    <small class="error" ng-model="tradepw.errormessage" ng-show="tradepw.errormessage"><span ng-bind="tradepw.errormessage"></span></small>
+                </div>
+            </div>
+            
+            <!--<div id="p2" ng-show="tradepw.step==1" class="bfc">
+                <ul class="input1_ul margetT80">
+                    <li class="input1_li input1_li2"> <span  class="over_message">新交易密码修改完成</span></li>
+                    
+                    <li class="input1_li input1_li2 gopswback">  <button type="submit" class="r_input_d buttonColor inline .marget20 buttondiasble"  ng-click="loginpage()">返回</button></li>
+                </ul>
+    
+    
+            </div>-->
+
+      
+
+
+            <div id="p1" ng-show="tradepw.step==0 && showPage(0,'f')" class="bfc">
+                <ul class="input1_ul">
+    				<li class="input1_li"><div class="r_marge"> <span class="m">*</span><span class="">已绑定银行卡：</span></div>
+                       
+                      <span class="bankcard">{{ tradepw.usercard }}</span>
+                     
+                   </li>
+                   
+                   <li class="input1_li">
+                   	<div class="r_marge"> <span class="m">*</span><span class="">输入银行卡号：</span></div>
+                    <input name="trade_c" id="inputb"  maxlength="19" minlength="14" class="r_input" type='text' ng-pattern="/^[0-9]*$/" ng-model="tradepw.bankCard" placeholder="输入已绑定银行卡的卡号" required/><img ng-show="trade_form.trade_c.$dirty && trade_form.trade_c.$invalid"  class="input1_icon"/><img ng-show="trade_form.trade_c.$valid"  class="input1_iconok" />
+                      <span class="input1_message">必填</span>
+                   </li>
+    
+                   <li class="input1_li"><div class="r_marge"> <span class="m">*</span><span class="">设定交易密码：</span></div><!--密码正则/(((?=.*[a-zA-Z])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[a-zA-Z])))\S{8,16}$/-->
+                       <input name="trade_pass" id="inputb"  maxlength="6" minlength="6" class="r_input" type='password' ng-pattern="/\d{6}/" ng-focus="!confirmPass()" ng-model="tradepw.confirmPword" placeholder="设定交易密码" required/><img ng-show="trade_form.trade_pass.$dirty && trade_form.trade_pass.$invalid"  class="input1_icon"/><img ng-show="trade_form.trade_pass.$valid"  class="input1_iconok" />
+                      <span class="input1_message">交易密码只能是6位数字</span>
+                   </li>
+              
+                   <li class="input1_li"><div class="r_marge"> <span class="m">*</span><span class="">重输交易密码：</span></div>
+                        <input name="trade_pass2" id="inputb1" minlength="6" maxlength="6" class="r_input" type='password' pw-check="userPassword" ng-model="tradepw.confirmPword2" placeholder="重输交易密码" ng-focus="!confirmPass()" required/><img ng-show="trade_form.trade_pass.$dirty && tradepw.confirmPword!=tradepw.confirmPword2"  class="input1_icon"/><img ng-show="trade_form.trade_pass2.$valid && tradepw.confirmPword==tradepw.confirmPword2"  class="input1_iconok" />
+                        <span class="input1_message" ng-show="trade_form.trade_pass.$dirty && tradepw.confirmPword!=tradepw.confirmPword2">密码不一致</span>
+                       </li>
+                       
+                       
+                    <li class="input1_li"><div class="r_marge"> <span class="m">*</span><span class="">输入动态码：</span></div>
+               <input name="f_pcheck" id="inputb" class="r_i_c" type='text' ng-model="tradepw.smsCode"
+                                                                                                                                                minlength="6"
+                                                                                                                                                maxlength="6"
+                                                                                                                                                ng-focus
+                   /><button type="button" id="ptimeout_f"    class="r_i_cc sendma" ng-click="smstimerout('backpass')" ng-disabled="!tradepw.bankCard||!tradepw.confirmPword||!tradepw.confirmPword2||tradepw.confirmPword!=tradepw.confirmPword2||tradepw.ched">发送动态码(60)</button>
+                
+            </li>
+   
+               
+               
+    
+                    <li class="input1_li r_button"><div class="r_marge "></div><button type="submit" class="r_input_d buttonColor inline .marget20 buttondiasble"  ng-disabled="!tradepw.bankCard||!tradepw.confirmPword||!tradepw.confirmPword2||!tradepw.smsCode||tradepw.confirmPword!=tradepw.confirmPword2"  ng-click="tradepWord()">下一步</button></li>
+    
+                </ul>
+    
+            </div>
+    
+    
+           </div>       
+    
+        </div>
+</form>

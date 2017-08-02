@@ -1,0 +1,129 @@
+/*button class*/
+.btn{
+	cursor: pointer;
+	outline: none;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.btn:hover{
+	box-shadow: 1px 1px 1px #AAA;
+	
+}
+.btn:active{
+	box-shadow: none !important;
+}
+.allinmoney-button-b64{
+	background-color: #FA6400 !important;
+	border-bottom: 3px solid #C80000 !important;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+	outline: none;
+}
+.allinmoney-button-b64:hover{
+	background-color: #FA8232 !important;
+	border-bottom-color: #C75050 !important;
+	box-shadow: 1px 1px 1px #AAA; 
+}
+.allinmoney-button-b64:active{
+	background-color: #E65C00 !important;
+	box-shadow: none !important;
+	border:none !important;
+	border-bottom-width: 0px !important;
+	margin-top: 3px;
+}
+.allinmoney-button-b64.disabled{
+	background-color: #CCCCCC !important;
+	border-bottom-color: #DDDDDD !important;
+	pointer-events:none;
+}
+
+.allinmoney-button-c64, .confirm-btn{
+	background-color: #FA9600 !important;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+	outline: none;
+}
+.allinmoney-button-c64:hover, .confirm-btn:hover{
+	background-color: #FAAA32 !important;
+	box-shadow: 1px 1px 1px #AAA; 
+}
+.allinmoney-button-c64:active, .confirm-btn:active{
+	background-color: #F09000 !important;
+	box-shadow: none !important;
+}
+
+.allinmoney-button-c64:disabled
+{
+    background-color: #FA6400 !important;
+	border-bottom-color: #C80000 !important;
+	transition:0.5s all;
+}
+
+.cancel-btn{
+	background-color: #FFF !important;
+	border-color: #666 !important;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+	outline: none;
+}
+.cancel-btn:hover{
+	background-color: #F5F5F5 !important;
+	box-shadow: 1px 1px 1px #AAA; 
+}
+.cancel-btn:active{
+	background-color: #E8E8E8 !important;
+	box-shadow: none !important;
+}
+.allinmoney-button-b65{
+	background-color: #FFF;
+	border-color: #FA6400;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+	outline: none;
+}
+.allinmoney-button-b65:hover{
+	background-color: #FFF0E5 !important;
+	border-color: #C75050 !important;
+	box-shadow: 1px 1px 1px #AAA; 
+}
+.allinmoney-button-b65:active{
+	background-color: #FA6400 !important;
+	box-shadow: none !important;
+	border-color: #FA6400 !important;
+	color: #FFF !important;
+}
+.allinmoney-otp-button{
+	background-color: #00A5FA;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+	outline: none;
+}
+.allinmoney-otp-button:hover{
+	background-color: #32B7FA !important;
+	box-shadow: 1px 1px 1px #AAA;
+}
+.allinmoney-otp-button:active{
+	background-color: #0099E6 !important;
+	box-shadow: none !important;
+}
+.allinmoney-otp-button.disabled{
+	background-color: #CCC !important;
+	box-shadow: none !important;
+}

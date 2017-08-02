@@ -1,0 +1,644 @@
+.flip-clock{
+	position: relative;
+	display: inline-block;	
+	text-align: center;
+	font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
+	color: #FA6400;
+}
+.flip-clock .flip-clock-divider{
+	float: left;
+	display: inline-block;
+	position: relative;
+	width: 15px;
+	height: 60px;
+}
+.flip-clock .flip-clock-dot{
+	display: block;
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	left: 5px;
+	border-radius: 50%;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	background-color: rgb(160,160,160);
+}
+.flip-clock .flip-clock-dot.top{
+	top:20px;
+}
+.flip-clock .flip-clock-dot.bottom{
+	bottom:20px;
+}
+.flip-clock .flip{
+	float: left;
+	position: relative;
+	margin: 5px;
+	width: 20px;
+	height: 50px;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 50px;
+	/*background-color: #454545;*/
+	border-radius: 8px;
+}
+.flip-clock ul{
+	float: left;
+	display: inline-block;
+}
+.flip-clock .flip li{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	z-index: 1;
+	background-color: #454545;
+}
+.flip-clock .flip .active{
+	z-index: 3;
+}
+.payconfirm-page {
+	color: #333333;
+}
+.payconfirm-page .title-pannel{
+	height: 60px;
+	line-height: 60px;
+}
+.payconfirm-page .title-pannel .title{
+	display: inline-block;
+	float: left;
+}
+.payconfirm-page .flip-clock{
+	float: right;
+}
+.payconfirm-page .title-value{
+	margin-left: 10px;
+}
+.payconfirm-page .payconfirm-container{
+	border: 1px solid #EEEEEE;
+	background-color: #FFFFFF;
+	padding:50px 50px 150px 50px;
+}
+.payconfirm-page .subtitle{
+	height: 20px;
+	line-height: 20px;
+}
+.payconfirm-page .title-label{
+	color: #999999;
+}
+.payconfirm-page .product-info-table{
+	padding: 30px 0;
+	height: 70px;
+	border-top: 3px solid #FA9600;
+	border-bottom: 1px solid  #FA9600;
+	margin-top:10px;
+}
+.payconfirm-page .product-info-table li{
+	display: inline-block;
+	float: left;
+	border-right: 1px dashed #DDDDDD;
+	height: 70px;
+	padding: 0 30px;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	overflow: hidden;
+}
+.payconfirm-page .product-info-table li:first-child{
+	padding-left: 0;
+	width: 320px;
+}
+.payconfirm-page .product-info-table li:last-child{
+	border-right: none;
+}
+.payconfirm-page .product-info-table .title{
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	color: #999999;
+	padding-top: 5px;
+	margin-bottom: 28px; 
+}
+.payconfirm-page .product-info-table .value{
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	padding-bottom: 5px;
+}
+.payconfirm-page .remindMessage{
+	margin-top: 10px;
+	color: #999999;
+	height: 18px;
+	line-height: 18px;
+}
+.payconfirm-page .balance-pannel{
+	text-align: right;
+	border-top: 1px solid #FA9600;
+	padding-top: 70px;
+	margin-top: 100px;
+}
+.payconfirm-page .method-pannel{
+	display: inline-block;
+	position: relative;
+	margin-top: 80px;
+	font-size: 18px;
+	color: #333333;
+}
+.payconfirm-page .method-pannel .title{
+	margin-bottom: 30px;
+}
+.payconfirm-page .method-pannel .method-item{
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	margin-right: 80px
+}
+.payconfirm-page .method-pannel .radio{
+	display: none;
+}
+.payconfirm-page .method-pannel .radio + label{
+    display: inline-block; 
+    width: 18px;
+    height: 18px;
+    position: relative; 
+	background-color: #FFF; 
+    border: 1px solid #C1CACA; 
+    border-radius: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05); 
+    vertical-align: top;
+    cursor: pointer;
+    transition:all 0.2s ease;
+}
+.payconfirm-page .method-pannel .radio:checked + label{
+	background-color: #ECF2F7;
+	border:1px solid #FA9600;
+	color: #243441;
+}
+.payconfirm-page .method-pannel .radio:checked + label:after{
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	border-radius: 100%;
+	background-color: #FA6400;
+	top:0;
+	left: 0;
+	transform:scale(0.8,0.8);
+	transition:all 0.2s ease;
+}
+
+
+.payconfirm-page .card-pannel .title, .payconfirm-page .method-pannel .title{
+	font-size: 22px;
+	color: #999999;
+}
+.payconfirm-page .card-pannel{
+	padding-top: 30px;
+}
+.payconfirm-page .card-pannel ol{
+	display: inline-block;
+	width: 100%;
+	padding-top: 30px;
+}
+.payconfirm-page .card-pannel .card{
+	display: inline-block;
+	float: left;
+	padding: 25px 20px;
+	height: 50px;
+	width: 497px;
+	position:relative;
+	border: 1px solid #BBBBBB;
+}
+.payconfirm-page .card-pannel .card.odd{
+	margin-right:20px;
+}
+.payconfirm-page .card-pannel .card.selected{
+	border:3px solid #FA9600;
+	padding: 23px 18px;
+}
+.payconfirm-page .card-pannel .card.selected:after{
+	content: "";
+	position: absolute;
+	bottom:0;
+	right: 0;
+	width: 23px;
+	height: 21px;
+	background-image: url("../img/cardbind.png");
+	background-position: 0 -62px;
+}
+.payconfirm-page .card-pannel .card-detail{
+	height: 14px;
+	line-height: 14px;
+	color: #017BFF;
+	margin-top: 18px;
+	float: right;
+}
+.payconfirm-page .card-pannel .card-item{
+	display: inline-block;
+	float: left;
+}
+.payconfirm-page .card-pannel .bank-icon{
+	width: 80px;
+	height: 50px;
+	margin-right: 20px;
+}
+.payconfirm-page .card-pannel .bank-info{
+
+}
+.payconfirm-page .card-pannel .bank-info .line-1{
+	margin-top: 5px;
+	height: 22px;
+	line-height: 22px;
+	color: #333333;
+}
+.payconfirm-page .card-pannel .bank-info .line-1 .title{
+	float: left;
+}
+.payconfirm-page .card-pannel .bank-info .line-1 .tag{
+	display: inline-block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 10px;
+	padding: 0 3px;
+	color: #FFFFFF;
+	border-radius: 2px;
+	background-color: #00BFFE;
+}
+.payconfirm-page .card-pannel .bank-info .line-2{
+	color: #999999;
+	height: 14px;
+	line-height: 14px;
+	margin-top: 5px;
+}
+.payconfirm-page .protocol-pannel{
+	color: #999999;
+	margin-top: 50px;
+}
+.payconfirm-page .protocol-pannel .item{
+	float: right;
+	display: inline-block;
+}
+.payconfirm-page .protocol-pannel .check1{
+	display: none;
+}
+.payconfirm-page .protocol-pannel .check1 + label{
+	background-color: #FFF; 
+    border: 1px solid #C1CACA; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05); 
+    padding: 9px; 
+    border-radius: 5px; 
+    display: inline-block; 
+    position: relative; 
+    margin-right: 20px; 
+}
+.payconfirm-page .protocol-pannel .check1:checked + label{
+	background-color: #ECF2F7;
+	border:1px solid #FA9600;
+	color: #243441;
+}
+.payconfirm-page .protocol-pannel .check1:checked + label:after{
+	content: '\2714';
+	position: absolute;
+	top:-15px;
+	left: 0;
+	color: #FA9600;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	padding: 1px 0 0 0;
+}
+.payconfirm-page .btn-pannel{
+	height: 53px;
+	margin-top: 20px;
+}
+.payconfirm-page .paybtn{
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 20px;
+	width: 300px;
+	height: 50px;
+	line-height: 50px;
+	color: #FFFFFF;
+	background-color: #FA6400;
+	border-radius: 5px;
+	border:none;
+	border-bottom: 3px solid #C80000;
+}
+
+.payconfirm-page .paybtn:disabled
+{
+    background-color: #cccccc !important;
+	border-bottom-color: #999999 !important;
+	transition:0.5s all;
+}
+
+.payconfirm-page .paywarp, .payconfirm-page .confirm-paywarp{
+	width: 100%;
+	height: 100%;
+	opacity: 0.3;
+	filter:alpha(opacity=30);
+	background-color: #000000;
+	position: fixed;
+	top:0;
+	z-index: 900;
+}
+.payconfirm-page .confirm-paywarp{
+	position: absolute;
+	font-size: 50px;
+	text-align: center;
+	z-index: 999;
+}
+.payconfirm-page .confirm-paywarp span{
+	display: inline-block;
+	height: 50px;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 0;
+}
+.payconfirm-page .confirm-pannel{
+	position: fixed;
+	top:50%;
+	left: 50%;
+	width: 500px;
+	margin-top: -250px;
+	margin-left: -250px;
+	background-color: #FFFFFF;
+	color: #666666;
+	z-index: 999;
+}
+.payconfirm-page .confirm-pannel .title{
+	width: 100%;
+	height: 49px;
+	line-height: 49px;
+	background-color: #F7F7F7;
+	border-bottom: 1px solid #DDDDDD;
+}
+.payconfirm-page .confirm-pannel .title span:first-child{
+	margin-left: 20px;
+}
+.payconfirm-page .confirm-pannel .title .close-btn{
+	width: 49px;
+	height: 49px;
+	display: inline-block;
+	float: right;
+	font-family: "SimSun";
+	font-size: 29px;
+	color: #E0E0E0;
+	text-align: center;
+}
+.payconfirm-page .confirm-pannel .title .close-btn:after{
+	content: '\2716';
+}
+.payconfirm-page .confirm-pannel .title .close-btn:hover{
+	color: #CCCCCC;
+	cursor: pointer;
+}
+.payconfirm-page .confirm-pannel .content{
+	width: 300px;
+	padding: 60px 100px 40px 100px;
+}
+.payconfirm-page .confirm-pannel .content li{
+	display: inline-block;
+}
+.payconfirm-page .confirm-pannel .content li span, .payconfirm-page .confirm-pannel .content li input{
+	float: left;
+}
+.payconfirm-page .confirm-pannel .content .label{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.payconfirm-page .confirm-pannel .sendline{
+	height: 40px;
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.payconfirm-page .confirm-pannel .content .input{
+	width: 173px;
+	height: 38px;
+	border:1px solid #FA9600;
+	border-radius: 5px;
+	padding-left: 20px;
+	font-size: 22px;
+	letter-spacing: 15px;
+	margin-right: 5px;
+}
+.payconfirm-page .confirm-pannel .content .input.password{
+	width: calc(100% - 2px);
+	padding:0;
+	text-align: center;
+}
+.payconfirm-page .confirm-pannel .send-btn{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	width: 100px;
+	background-color: #00A5FA;
+	text-align: center;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+.payconfirm-page .confirm-pannel .error{
+	display: inline-block;
+	width: 100%;
+	height: 15px;
+	line-height: 15px;
+}
+.payconfirm-page .confirm-pannel .error-icon{
+	width: 15px;
+	height: 15px;
+	background-image: url("../img/cardbind.png");
+	background-position: 0 -123px;
+	background-repeat:no-repeat; 
+}
+.payconfirm-page .confirm-pannel .error-info{
+	color: #FF0000;
+	margin-left: 10px;
+}
+.payconfirm-page .confirm-pannel .next-btn{
+	border:1px solid #FA6400;
+	border-radius: 5px;
+	text-align: center;
+	color: #FA6400;
+	width: 298px;
+	height:	38px;
+	line-height: 38px;
+	margin-top: 40px; 
+	margin-bottom: 20px;
+}
+.payconfirm-page .confirm-pannel .message-title{
+	color: #00A5FA;
+	margin-bottom: 10px;
+}
+.payconfirm-page .confirm-pannel .message-title span{
+	float: right;
+}
+.payconfirm-page .confirm-pannel .message{
+	display: inline-block;
+	padding:15px 10px;
+	border: 1px solid #CCCCCC;
+}
+.payconfirm-page .confirm-pannel .message span{
+	display: inline-block;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+}
+.payconfirm-page .card-detail-pannel{
+	display: inline-block;
+	width: 600px;
+	height: 150px;
+	padding: 5px;
+	font-size: 14px;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	text-align: center;
+	background-color: #FFFFFF;
+	position: absolute;
+	z-index: 1;
+}
+.payconfirm-page .card-detail-pannel li{
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	float: left;
+}
+.payconfirm-page .card-detail-pannel .title{
+	height: 40px;
+	width: 598px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #666666;
+	background-color: #F5F5F5;
+	border:1px solid #CCCCCC;
+}
+.payconfirm-page .card-detail-pannel span{
+	display: inline-block;
+	float: left;
+	width: 149px;
+	height: 40px;
+	line-height: 40px;
+	border:1px solid #CCCCCC;
+	border-top: none;
+	border-left: none;
+}
+.payconfirm-page .card-detail-pannel span:first-child{
+	width: 148px;
+	border-left: 1px solid #CCCCCC;
+}
+.payconfirm-page .card-detail-pannel .label{
+	background-color: #F5F5F5;
+}
+.order-complete-container{
+	margin-top: 60px;
+	padding:50px;
+	background-color: #FFFFFF;
+	text-align: center;
+}
+.order-complete-container .title{
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 3px solid #FA9600;
+}
+.order-complete-container .title span{
+	float: left;
+}
+.order-complete-container .p1{
+	margin:100px 0 25px 0;
+}
+.order-complete-container .p2{
+	margin-bottom: 100px;
+}
+.order-complete-container .btn-pannel{
+	margin-bottom: 300px;
+}
+.order-complete-container .btn-pannel .btn{
+	display: inline-block;
+	width: 198px;
+	height: 48px;
+	line-height: 48px;
+	border:1px solid #FA6400;
+	text-align: center;
+	margin-right: 20px;
+	border-radius: 5px;
+}
+
+.payconfirm-page .scancode .title{
+	background:#f9f9f9;
+}
+.payconfirm-page .scancode .title .bold{
+	font-weight:normal;
+}
+.payconfirm-page .scancode{
+	z-index:999;
+}
+.scodeimg{
+	width:240px;
+	height:265px;
+	line-height:250px;
+}
+.scode-content{
+	height:400px;
+	position:relative;
+}
+.scode-content p.scodeimg{
+	margin:30px 130px 10px;
+	line-height:120px;
+	text-align:center;
+}
+.scode-content p.font-2{
+	text-align:center;
+	font-size:14px;
+	color:#666;
+	line-height:22px;
+}
+.scode-content p.font-2 span{color:#ff0000;margin:0 5px;}
+
+.scode-content p.font-21{
+	margin-top:30px;
+}
+.scode-error{
+	position:absolute;
+	background:#FFF;
+	width:100%;
+	height:50px;
+	bottom:0px;
+	text-align:center;
+	font-size:12px;
+}
+.codebtn1,.codebtn2{
+	width:100px;
+	height:45px;
+	text-align:center;
+	line-height:45px;
+	font-size:14px;
+	border-radius:5px;
+	font-family:"Microsoft YaHei UI";
+}
+.codebtn12{
+		text-align:center;
+		margin-top:30px;
+	}
+.codebtn1{
+	color:#FFF;
+	border:0;
+	background:#FA9600;
+	outline:none;
+	cursor:pointer;
+}
+.codebtn2{
+	color:#666666;
+	border:1px solid #333;
+	margin-left:10px;
+	background:#Ffffff;
+	outline:none;
+	cursor:pointer;
+}
+.errormsg{
+	text-align:center;
+	font-size:14px;
+	color:#666;
+	width:240px;
+	margin:0 auto;
+	line-height:22px;
+}

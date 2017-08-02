@@ -1,0 +1,132 @@
+<div class="productDetailContainer">
+	<div class="w">
+		<div class="productAnalysisContainer">
+			<div class="left-pannel pannel">
+				<ul>
+					<li class="img-block">
+						<a class="img"><img src="img/product_0001.jpg"></a>
+					</li>
+					<!-- <li>
+						<div class="focus">
+							<span class="not-focus" ng-show="!hasFocusProduct();" ng-click="focusProduct();">加关注</span>
+							<span class="has-focus" ng-show="hasFocusProduct();" ng-click="cancelFocusProduct();">已关注</span>
+						</div>	
+					</li> -->
+					<span class="clear"></span>
+				</ul>
+			</div>
+			<div class="middle-pannel pannel">
+				<p class="title">{{product.title}}</p>
+				<p class="sub-title">
+					<span class="label">产品代码:</span><span class="code">{{product.code}}</span>
+					<span class="label">产品类型:</span><span class="type">{{product.type}}</span>
+					<span class="clear"></span>
+				</p>
+				<ol class="detail-brief-block">
+					<li class="expected_revenue block">
+						<p class="p1"><span class="value">{{product.expected_revenue.value}}</span><span class="unit">{{product.expected_revenue.unit}}</span></p>
+						<p class="p2">预期年化收益率</p>
+					</li>
+					<li class="end_time block">
+						<p class="p1"><span class="value">{{product.end_time.numb}}</span><span class="unit">{{product.end_time.unit}}</span></p>
+						<p class="p2">产品期限</p>
+					</li>
+					<li class="risk block">
+						<p class="p1"><span class="value">{{product.risk}}</span></p>
+						<p class="p2">风险等级</p>
+					</li>
+				</ol>
+				<ol class="detail-block">
+					<li ng-repeat="item in product.details">
+						<span class="label">{{item.label}}</span>
+						<span class="value">{{item.value}}</span>
+					</li>
+				</ol>
+				<div class="sell-block">
+					<div class="invest-block">
+						<span class="invest-item invest-label">投资金额:</span>
+						<input class="invest-item" 
+						type="text" 
+						ng-model="transactionAmount"
+						ng-blur="checkTranscationAmount();"
+						placeholder="{{placeholder}}"
+						>
+						<span class="invest-item invest-unit">元</span>
+						<span class="invest-item error" ng-show="maxAmountInvalid">您的投资额度超过限额</span>
+						<span class="invest-item error" ng-show="patternAmountInvalid">请输入购买金额</span>
+						<span class="invest-item error" ng-show="patternAmountUnitInvalid">{{unitInfo}}</span>
+					</div>
+					<div class="btn-line">
+						<span class="status1 btn allinmoney-button-b64" ng-click="createOrder();" ng-show="getProductSellStatus('canBuy')">购买</span>
+						<span class="status2 btn" ng-show="getProductSellStatus('sellOut')">已抢光</span>
+						<span class="status3 btn" ng-show="getProductSellStatus('stopBuy')">暂停购买</span>
+					</div>
+				</div>
+				<p class="other-block">
+					{{product.others}}
+				</p>
+			</div>
+			<div class="right-pannel pannel">
+				<!-- <p class="chart-title">收益表</p>
+				<div chart-round-progress data="roundData" replace-select="true" chart-width="360px" chart-height="220px" class="chart"></div> -->
+			</div>
+			<span class="clear"></span>
+		</div>
+		<div class="productIntroductionContainer">
+			<div class="tab-pannel">
+				<ol class="tab-menu">
+					<li ng-repeat="menu in tabMenus" ng-mouseover="changeTab(menu.index);" 
+					ng-class="{'selected':menu.selected}">
+						<a>{{menu.title}}</a>
+					</li>
+				</ol>
+				<div class="tab1 tab-page" ng-show="showTab(0);">
+					<div class="left-block block">
+						<ul>
+							<li ng-repeat="item in product.details_data_1">
+								<span class="label">{{item.label}}:</span>
+								<span class="value">{{item.value}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="middle-block block">
+						<ul>
+							<li ng-repeat="item in product.details_data_2">
+								<span class="label">{{item.label}}:</span>
+								<span class="value">{{item.value}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="right-block block">
+						<ul>
+							<li ng-repeat="item in product.details_data_3">
+								<span class="label">{{item.label}}:</span>
+								<span class="value">{{item.value}}</span>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<img src="">
+					</div>
+				</div>
+				<!-- <div class="tab2 tab-page" ng-show="showTab(1);">
+					<ul class="announcementListPannel">
+						<li ng-repeat="announcement in announcementList">
+							<a ng-click="openAnnouncement(announcement);">{{announcement.title}}</a>
+						</li>
+					</ul>
+					<ul class="pageNum">
+						<li><span ng-click="prevAnnouncementPage();" 
+						ng-disabled="!hasPrevPage" 
+						ng-class="{'disabled':!hasPrevPage}"><</span></li>
+						<li><span class="currentPage page">{{currentAnouncePage}}</span></li>
+						<li><span ng-click="nextAnnouncementPage();" 
+						ng-disabled="!hasNextPage" 
+						ng-class="{'disabled':!hasNextPage}">></span></li>
+					</ul>
+				</div>
+				<div class="tab3 tab-page" ng-show="showTab(2);">TAB3</div> -->
+			</div>
+		</div>
+	</div>
+</div>

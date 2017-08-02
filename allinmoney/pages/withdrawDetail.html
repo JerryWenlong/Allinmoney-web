@@ -1,0 +1,44 @@
+<div class="orderDetail-page">
+    <div class="bing_content" ng-init="getWithdrawDetail()" >
+        <div class="w w1040">
+            <div class="title-div">
+                <span class="title">交易详情</span>
+            </div>
+            <div class="detail-div" >
+                <div class="detail-item">
+                    <span class="detailk">交易编号:</span>
+                    <span class="detailname">{{withdrawdetails.tradeSerialNo}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">交易类型:</span>
+                    <span class="detailname">提现</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">申请时间:</span>
+                    <span class="detailname">{{withdrawdetailstime}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detailk">提现金额:</span>
+                    <span class="detailgold">¥{{withdrawdetails.totalAmount}}</span> <span class="detailname">元</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">提现信息:</span>
+                    <span class="detailname">{{withdrawdetails.subject}}</span> 
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">提现状态:</span>
+                    <span class="detailname st{{withdrawdetails.status}}">{{getpaymentStatus(withdrawdetails.status)}}</span>
+                </div>
+            </div>
+            <div class="detailP">
+                <span class="detailP-title">补充说明</span>
+                <span class="detailP-note">{{withdrawdetails.remark}}</span>
+                
+            </div>
+            <div class="button-div">
+                
+            </div>
+        </div>
+    </div>
+</div>

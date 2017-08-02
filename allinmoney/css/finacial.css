@@ -1,0 +1,251 @@
+.finacial-page .advertisement-container{
+	width: 900px;
+}
+/*begin slide show */
+.finacial-page .slide{width:900px;height:300px;margin:0 auto;overflow:hidden;position:relative;}
+/*.finacial-page .slide .slide-container{position:absolute;top:0;left:0;width:2700px;}*/
+.finacial-page .slide .slide-container img{float:left;}
+.finacial-page .slide img{width:900px;}
+.finacial-page .slide .slide-btn-container{width:900px;height:18px;line-height:18px;position:absolute;bottom:20px;z-index:11;text-align:center;}
+/*.slide-btn a{color: #f1f1f1;}*/
+/*.slide-btn a.hover{color:#ccc;}*/
+.finacial-page .slide .slide-btn-container span{
+	margin-right: 10px; 
+}
+.finacial-page .slide .slide-btn-container .notactive-btn{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-image: url("../img/zwimg.png");
+	background-position: -724px 0; 
+	background-repeat: no-repeat;
+}
+.finacial-page .slide .slide-btn-container .hover{
+	width: 18px;
+	height: 18px;
+	background-image: url("../img/zwimg.png");
+	background-position: -696px 0; 
+	background-repeat: no-repeat;
+}
+/*end of slide show*/
+
+/*begin of product slide show*/
+.finacial-page .advertisement-product-container{
+	width: 300px;
+	height: 280px;
+	display: inline-block;
+	float: left;
+	padding:10px 0;
+}
+.finacial-page .slide-product{
+	width: 300px;
+	height: 280px;
+	display: inline-block;
+	position: relative;
+	background-color: #F2F2F2;
+	overflow: hidden;
+}
+/*.finacial-page .slide-product .slide-container{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 1000px;
+}*/
+.finacial-page .slide-product .slide-container .product-slide-node{
+	float: left;
+	width: 220px;
+	height: 245px;
+	padding: 35px 40px 0 40px;
+	display: inline-block;
+}
+.finacial-page .slide-product .slide-btn-container{
+	width:300px;
+	height:18px;
+	line-height:18px;
+	position:absolute;
+	bottom:20px;
+	z-index:11;
+	text-align:center;
+}
+
+.finacial-page .slide-product .float-btn:hover{
+	cursor: pointer;
+}
+.finacial-page .slide-product .float-btn{
+	width: 40px;
+	height: 70px;
+	display: inline-block;
+	position: absolute;
+	top:100px;
+	color: #CCCCCC;
+	font-size: 44px;
+	line-height: 70px;
+	font-family: "SimSun";
+}
+.finacial-page .slide-product .float-btn:hover{
+	color: #FA9600;
+}
+.finacial-page .slide-product .float-left-btn{
+	left: 0px;
+	padding-left: 20px;
+}
+.finacial-page .slide-product .float-right-btn{
+	right: 0;
+	padding-right: 20px;
+}
+
+.finacial-page .slide-product .title{
+	font-size: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	color: #333333;
+	display: inline-block;
+	height: 28px;
+	width: 100%;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.finacial-page .slide-product .sub-title{
+	color: #FA9600;
+	font-size: 12px;
+	display: inline-block;
+	height: 12px;
+	width: 100%;
+	line-height: 12px;
+	margin-bottom: 15px;
+}
+.finacial-page .slide-product .info-list{
+	width: 100%;
+	height: 148px;
+	text-align: center;
+}
+.finacial-page .slide-product .revenue{
+	display: inline-block;
+	width: 100%;
+	height: 48px;
+	color: #FA9600;
+	padding-bottom: 2px;
+	position: relative; 
+}
+.finacial-page .slide-product .revenue .value{
+	font-size: 48px;
+	font-weight: bold;
+	line-height: 48px;
+}
+.finacial-page .slide-product .revenue .unit{
+	font-size: 22px;
+}
+.finacial-page .slide-product .revenue-title{
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	width: 160px;
+	color: #FFFFFF;
+	font-size: 12px;
+	background-color: #CCCCCC;
+	border-radius: 10px;
+	text-align: center;
+}
+.finacial-page .slide-product .buy-btn-pannel{
+	margin-top: 25px;
+	height: 53px;
+	width: 100%;
+	display: inline-block;
+}
+.finacial-page .slide-product .buy-btn{
+	display: inline-block;
+	width: 220px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 24px;
+	color: #FFFFFF;
+	background-color: #FA6400;
+	border-bottom: 3px solid #C80000;
+	border-radius: 5px;
+}
+/*end of product slide show*/
+.finacial-page .filter-container{
+	padding: 50px 40px 30px 40px;
+	border:1px solid #EEEEEE;
+	font-size: 14px;
+	color: #AAAAAA;
+	background-color: #FFFFFF;
+	position: relative;
+}
+.finacial-page .filter-container .filter-line{
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.finacial-page .filter-container .filter-title{
+	float: left;
+	margin-right: 10px;
+}
+.finacial-page .filter-container .filter-item{
+	display: inline-block;
+	float: left;
+	color: #666666;
+	height: 17px;
+	line-height: 17px;
+	padding:3px 5px;
+	border:1px solid #EEEEEE;
+	border-radius: 2px;
+	margin-right: 40px;
+}
+.finacial-page .filter-container .filter-item.active{
+	color: #FFFFFF;
+	background-color: #FF8D00;
+}
+.finacial-page .filter-container .expand-filter-pannel{
+	display: inline-block;
+	position: relative;
+	width: 800px;
+	padding: 5px;
+	margin-top: -5px;
+}
+.finacial-page .filter-container .expand-filter-pannel .line-pannel.first-line{
+	margin-top: 0px;
+}
+/*.finacial-page .filter-container .expand-filter-pannel:hover{	
+	margin: -2px;
+	margin-top: -7px;
+	border:2px solid ;
+}*/
+.finacial-page .filter-container .expand-filter-pannel .line-pannel{
+	display: inline-block;
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+}
+.finacial-page .filter-container .expand-btn{
+	position: absolute;
+	right: 5px;
+	top:5px;
+	color: #666666;
+	height: 17px;
+	line-height: 17px;
+	border:1px solid #CCCCCC;
+	border-radius: 2px;
+	padding: 3px 5px;
+}
+.finacial-page .filter-container .expand-btn:hover{
+	cursor: pointer;
+	color: #FA9600;
+	border-color: #FA9600;
+}
+.finacial-page .finacial-sort-list {
+	position: relative;
+}
+.finacial-page .filter-container .filter-warp, .finacial-page .finacial-sort-list .filter-warp{
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	background-color: #FFFFFF;
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 100;
+}

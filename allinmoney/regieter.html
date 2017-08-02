@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>注册</title>
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body class="bodylogin" ng-cloak>
+<form name='register_form' class="margeB0" ng-controller='forgetController'>
+    <div class="w">
+        <div class="bar">
+            <span/>
+
+            <div class="bd_logo">
+                <a href="index.html" class="logo"></a>
+            </div>
+
+            </span>
+
+            <span class="logo_text">欢迎注册</span>
+            <span class="clear"></span>
+
+        </div>
+        <div class="c_f" ng-init="show_p=0">
+            <div  class="w bf register_d">
+                <ul class="r_bar">
+                    <li class="li_f margeL0"><div id="r_page0"  class="li_d register_c"><div id="r_indexPage0"  class="radio">1</div><span class="bar_t">设置用户名</span></div></li>
+                    <li class="li_f"><div id="r_page1" class="li_d register_c"><div id="r_indexPage1"  class="radio">2</div><span class="bar_t">完成</span></div></li>
+                </ul>
+            </div>
+
+           <div class="r_c bfc" ng-show="showPage(0,'r')">
+               <div class="error_div">
+                   <div  class="error"  ng-init="show_error=false" ng-show="register.errormessage">
+
+               <!--     <small class="error" ng-show="register_form.r_name.$error.pattern "><span >用户名格式错误</span></small>
+                       <small class="error" ng-show="registercheck.usernamecheck"><span >用户名已存在</span></small>
+                       <small class="error" ng-show="register_form.r_phone.$error.pattern "><span >手机号格式错误</span></small>
+                       <small class="error" ng-show="registercheck.cellphonecheck"><span >手机号已存在</span></small>
+                       <small class="error" ng-show="register_form.r_pw.$error.pattern"><span >密码格式错误</span></small>
+
+                       <small class="error" ng-show="register_form.r_pcheck.$error.maxlength"><span >手机验证码验证码长度为6</span></small>
+                       <small class="error" ng-show="register_form.r_pcheck.$error.minlength"><span >手机验证码验证码长度为6</span></small>
+
+                       <small class="error" ng-show="register_form.r_opt.$error.maxlength"><span >验证码长度为4</span></small>
+                       <small class="error" ng-show="register_form.r_opt.$error.minlength"><span ></span>验证码长度为4</small>
+
+                       <small class="error" ng-show="!confimPassword()"><span ></span>确认密码与密码不一致</small>-->
+
+                       <small class="error" ng-model="register_form.errormessage" ng-show="register.errormessage"><span ng-bind="register.errormessage"></span></small>
+                   </div>
+               </div>
+               <ul class="input1_ul " ng-init="clickimg=false">
+                   <li class="input1_li"><div class="r_marge"> <span class="m">*</span><span class="">会员名：</span></div><input  ng-blur="onblurcheck(register_form.r_name.$invalid,'username',register.username)" name="r_name" id="inputb"  class="r_input" type='text' ng-model="register.username"
+                                                                                                                             ng-pattern="/^[\w\d_]{4,30}$/"
+                                                                                                                             ng-minlength="4"
+                                                                                                                             maxlength="30"
+                                                                                                                              ng-focus
+                            /><img  class="input1_icon" ng-show="register_form.r_name.$invalid || registercheck.usernamecheck" />
+                            <img  class="input1_iconok" ng-show="!register_form.r_name.$invalid &&!registercheck.usernamecheck &&register_form.r_name.$dirty && register.username " />
+                            <span class="input1_message" ng-show="!registercheck.usernamecheck">请输入字母、数字、下划线组成的4-30字符</span>
+                            <span class="input1_message" ng-show="registercheck.usernamecheck">已存在，请重新输入</span>
+                    </li>
+
+
+                   <li class="input1_li "><div class="r_marge"> <span class="m">*</span> <span class="">手机号：</span></div><input name="r_phone" id="inputb" class="r_input" type='text'ng-model="register.cellphone"  ng-blur="onblurcheck(register_form.r_phone.$invalid,'cellphone',register.cellphone)"
+                                                                                                                              ng-pattern="/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/"
+                                                                                                                              ng-minlength="11"
+                                                                                                                              ng-focus
+                            /><img ng-show="register_form.r_phone.$invalid || registercheck.cellphonecheck" class="input1_icon"/>
+                            <img  ng-show="!register_form.r_phone.$invalid && !registercheck.cellphonecheck &&register_form.r_phone.$dirty&&register.cellphone" class="input1_iconok" />
+                             <span class="input1_message" ng-show="registercheck.cellphonecheck">此号码已存在，请重新输入</span>
+                   </li>
+
+                   <li class="input1_li"><div class="r_marge"> <span class="m">*</span> <span class="">设置密码：</span></div><input name="r_pw" id="inputb" class="r_input" type='password'ng-model="register.password"
+                                                                                                                                ng-pattern="/(((?=.*[a-zA-Z])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[a-zA-Z])))\S{8,16}$/"
+                                                                                                                                ng-focus
+                                                                                                                                maxlength="16"
+                            /><img ng-show="register_form.r_pw.$invalid"  class="input1_icon"/>
+                            <img ng-show="!register_form.r_pw.$invalid &&register_form.r_pw.$dirty&&register.password"  class="input1_iconok" />
+                            <span class="input1_message">请输入字母、数字、下划线组成的8-16字符</span></li>
+
+                   <li class="input1_li"><div class="r_marge"> <span class="m">*</span> <span class="">确认密码：</span></div><input name="r_rpw" id="inputb" class="r_input" type='password' maxlength="16" ng-model="register.confirmPassword"/>
+                           <img ng-show="!confimPassword()&&register.confirmPassword" class="input1_icon"/>
+                           <img  ng-show="confimPassword()  &&register_form.r_rpw.$dirty&&register.confirmPassword" class="input1_iconok" /><span class="input1_message" ng-show="!confimPassword()&&register.confirmPassword">两次密码不一致</span>
+
+                   </li>
+
+                   <li class="input1_li"><div class="r_marge"> <span class="m">*</span> <span class="">图形码：</span></div><div  class="r_input_d"><input name="r_opt" id="inputb" class="r_i_c" type='text'ng-model="register.captcha"
+                                                                                                                                                      minlength="4"
+                                                              
+                         ng-pattern="/^[0-9a-zA-Z]{4}$/"                                                                                                                     maxlength="4"
+                         ng-focus
+                           /><img class="r_i_cc" id="r_check"  ng-click="getcaptchatoken()" ng-show="clickimg"  ng-init="firstgetCaptcha()"/>
+                <!--           <button id="but_check" class="r_i_cc clickimg"
+                                   ng-click="firstgetCaptcha()" ng-show="!clickimg">点击获取验证码
+                           </button>-->
+                          </div>
+                           <img ng-show="register_form.r_opt.$invalid"  class="input1_icon" />
+                        <!--   <img   ng-show="!register_form.r_opt.$invalid &&register_form.r_opt.$dirty&&register.captcha" class="input1_iconok" />-->
+                   </li>
+
+                   <li class="input1_li"><div class="r_marge"><span class="m">*</span> <span class="">手机验证码：</span></div><div  class="r_input_d"><input name="r_pcheck" id="inputb" class="r_i_c" type='text' ng-model="register.smsCode"
+                                                                                               ng-pattern="/^[0-9]*$/"                                                        minlength="6"
+                                                                                                                                                       maxlength="6"
+                                                                                                                                                        ng-focus
+                            /><button  type="button" id="ptimeout_r"    class="r_i_cc" ng-click="smstimerout()" ng-disabled="forget.smsdisable || !register.cellphone || registercheck.cellphonecheck">发送动态码(60)</button></div>
+                            <img class="input1_icon"   ng-show="register_form.r_pcheck.$invalid"  />
+                          <!--  <img  class="input1_iconok"  ng-show="!register_form.r_pcheck.$invalid &&register_form.r_pcheck.$dirty"  />-->
+                   </li>
+
+                   <li class="input1_li"><div class="r_marge"></div><input id="auto" class="inline" type="checkbox"  ng-model="register.acceptTos"/><div class="inline">同意</div><div class="inline"><a href="regterm.html" target="_blank">《众网金融用户协议》</a></div></li>
+
+                   <li class="input1_li r_button"><div class="r_marge "></div><button type="button" class="r_input_d buttonColor inline .marget20 buttondiasble"  ng-disabled="!register.cellphone||!register.confirmPassword||!register.password||!register.captcha||!register.smsCode||!register.username||!confimPassword()||register_form.$invalid || register.acceptTos!=true ||registercheck.usernamecheck || registercheck.cellphonecheck"  ng-click="RegisterToServer(register.acceptTos)">注册</button></li>
+
+               </ul>
+           </div>
+
+            <div id="r_finish" ng-show="showPage(1,'r')">
+                <div class="r_goto_c_div">
+                     <span class="r_ok_t">恭喜您，注册成功！</span>
+                    <div class="r_goto_c_div"><a id="r_ok_c"  href="./index.html#/binding">绑定银行卡</a></div>
+                </div>
+                <div class="r_gotodiv">
+                    <button class="r_goto" ng-click="gotofirst()">去理财</button>
+                    <button class="r_goto" ng-click="gotoAccount()">用户中心</button>
+                </div>
+            </div>
+         </div>
+    </div>
+ </form>
+<footer class="foot_container" ng-controller="footController">
+    <div class="wrap_foot">
+        <div class="left-block block">
+            <ul>
+                <li>
+                    <p>
+                        <span class="document" ng-repeat="document in documentList"><a href="#/">{{document.title}}</a></span>
+                    </p>
+                </li>
+                <li class="copyright">
+                    <p>Copyright © 2015-2016 众网金融科技(上海) allinmoney.com 版权所有</p>
+                    <p>备案号 沪ICP备15055080号-1</p>
+                </li>
+                <li>
+                    <img class="icon" src="img/safeiconlogo.png">
+                </li>
+            </ul>
+        </div>
+        <div class="middle-block block">
+            <ul>
+                <li><p class="p1">服务热线</p></li>
+                <li><p class="p2 orange">400 800 800</p></li>
+            </ul>
+        </div>
+        <div class="right-block block">
+            <div class="left-pannel">
+                <p>关注我们</p>
+                <p>
+                    <span class="qq_icon icon"></span>
+                    <span class="weibo_icon icon"></span>
+                </p>
+            </div>
+            <div class="right-pannel">
+                <img class="2D_code" src="img/2D_code_105_105.png" />
+            </div>
+        </div>
+    </div>
+    <span class="clear"></span>
+</footer>
+</body>
+<script data-main="js/appLogin/main" src="js/lib/require/require.js"></script>
+</html>

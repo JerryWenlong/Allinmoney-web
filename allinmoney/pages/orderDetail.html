@@ -1,0 +1,67 @@
+<div class="orderDetail-page">
+    <div class="bing_content " ng-init="getOrderDetail()" >
+        <div class="w binding_left100">
+            <div class="title-div">
+                <span class="title">交易详情</span>
+                <div class="flip-clock" ng-show="showOrderTime">
+                    <ul>
+                        <li id='clockhour_e' class="flip"></li>
+                        <li id='clockhour_a' class="flip"></li>
+                        <li id='clockhour_b' class="flip"></li>
+                    </ul>
+                    <span class="flip-clock-divider minutes">
+                        <span class="flip-clock-dot top"></span>
+                        <span class="flip-clock-dot bottom"></span>
+                    </span>
+                    <ul>
+                        <li id='clockmin_a' class="flip"></li>
+                        <li id='clockmin_b' class="flip"></li>
+                    </ul>
+                    <span class="flip-clock-divider seconds">
+                        <span class="flip-clock-dot top"></span>
+                        <span class="flip-clock-dot bottom"></span>
+                    </span>
+                    <ul>
+                        <li id='clockSec_a' class="flip"></li>
+                        <li id='clockSec_b' class="flip"></li>
+                    </ul>
+                </div>
+                <span class="left-time-title font-20 orange" style="float:right;" ng-show="showOrderTime">距离订单交易关闭还有</span>
+            </div>
+            <div class="detail-div" >
+                <div class="detail-item">
+                    <span class="detailk">订单编号:</span>
+                    <span class="detailname">{{orderdetail.orderNo}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">下单时间:</span>
+                    <span class="detailname">{{orderdetail.businessDate}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">产品名称:</span>
+                    <span class="detailname">{{orderdetail.productName}}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">投资金额:</span>
+                    <span class="detailgold">¥{{orderdetail.entrustAmount}}</span> <span class="detailname">元</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">投资收益:</span>
+                    <span class="detailgold">¥{{orderdetail.revenue}}</span> <span class="detailname">元</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detailk">订单状态:</span>
+                    <span class="detailname">{{orderdetail.statusStr}}</span>
+                </div>
+            </div>
+            <div class="detailP">
+                <span class="detailP-title">补充说明</span>
+                <span class="detailP-note">收益将在到期后的1-3工作日内，自动打到你您投资时使用的银行卡上，具体到账时间，以银行处理时间为准。</span>
+                <span class="detailP-note">如果产品募集失败，您的款项将会自动退回到您的银行卡中。</span>
+            </div>
+            <div class="button-div">
+                <button ng-show="needPay(orderdetail[0].status)" ng-click="toPay(orderdetail[0].id)" class="button">支付</button>
+            </div>
+        </div>
+    </div>
+</div>

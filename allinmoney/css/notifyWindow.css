@@ -1,0 +1,10 @@
+.notifyWarp{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    z-index: 998;
+}

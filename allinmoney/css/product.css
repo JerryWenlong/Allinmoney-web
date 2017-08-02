@@ -1,0 +1,328 @@
+/*begin of product detail page*/
+.productAnalysisContainer{
+	position: relative;
+	padding: 30px;
+	margin-top: 30px;
+	border:1px solid #E6E6E6;
+	background-color: #FFFFFF;
+}
+.productAnalysisContainer .pannel{
+	float: left;
+	display: inline-block;
+}
+.productAnalysisContainer .left-pannel{
+	width: 220px;
+	padding-right: 40px;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+.productAnalysisContainer .left-pannel .img{
+	width: 220px;
+	height: 220px;
+}
+.productAnalysisContainer .left-pannel li{
+	float: left;
+	display: inline-block;
+	width: 100%;
+}
+.productAnalysisContainer .left-pannel .img-block{
+	height: 220px;
+}
+.productAnalysisContainer .left-pannel .focus{
+	display: inline-block;
+	margin-top: 10px;
+	width: 70px;
+}
+.productAnalysisContainer .left-pannel .focus .has-focus, .productAnalysisContainer .left-pannel .focus .not-focus{
+	display: inline-block;
+	height: 20px;
+	width: 68px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #FA6400;
+	border:1px solid #FA6400;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.productAnalysisContainer .middle-pannel{
+	padding-right: 40px;
+	width: 480px;
+}
+.productAnalysisContainer .middle-pannel .title{
+	height: 22px;
+	line-height: 22px;
+	font-size: 22px;
+	color: #333333;
+	margin-bottom: 30px;
+}
+.productAnalysisContainer .middle-pannel .sub-title{
+	height: 14px;
+	line-height: 14px;
+	color: #666666;
+	font-size: 14px;
+}
+.productAnalysisContainer .middle-pannel .sub-title span{
+	float: left;
+}
+.productAnalysisContainer .middle-pannel .sub-title .label{
+	color: #AAAAAA;
+}
+.productAnalysisContainer .middle-pannel .sub-title .code, .productAnalysisContainer .middle-pannel .sub-title .type{
+	padding:0 10px;  
+}
+.productAnalysisContainer .middle-pannel .sub-title .code{
+	border-right: 1px solid;
+	margin-right: 10px;
+}
+.productAnalysisContainer .middle-pannel .detail-brief-block{
+	display: inline-block;
+	width: 480px;
+	height: 50px;
+	background-color: #FA9600;
+	color: #FFFFFF;	
+	margin-top: 15px;
+	padding:25px 0;
+	float: left;
+}
+.productAnalysisContainer .middle-pannel .block{
+	display: inline-block;
+	float: left;
+	padding:0 40px;
+}
+.productAnalysisContainer .middle-pannel .expected_revenue, .productAnalysisContainer .middle-pannel .end_time{
+	border-right: 1px dashed #FDCFA3;
+}
+.productAnalysisContainer .middle-pannel .detail-brief-block .p1{
+	height: 22px;
+	position: relative;
+	margin:5px 0;
+}
+.productAnalysisContainer .middle-pannel .detail-brief-block .p2{
+	font-size: 14px;
+	height: 14px;
+	line-height: 14px;
+}
+.productAnalysisContainer .middle-pannel .detail-brief-block .value{
+	display: inline-block;
+	float: left;
+	font-size: 22px;
+	height: 22px;
+	line-height: 22px;
+}
+.productAnalysisContainer .middle-pannel .detail-brief-block .unit{
+	display: inline-block;
+	float: left;
+	font-size: 16px;
+	position: absolute;
+	bottom:0;
+}
+.productAnalysisContainer .middle-pannel .detail-block{
+	display: inline-block;
+	width: 480px;
+	margin-top: 20px;
+	float: left;
+	font-size: 14px;
+	color: #666666;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.productAnalysisContainer .middle-pannel .detail-block li{
+	display: inline-block;
+	float: left;
+	height: 14px;
+	width: 50%;
+	line-height: 14px;
+	margin-bottom: 15px;
+}
+.productAnalysisContainer .middle-pannel .detail-block .label{
+	color: #AAAAAA;
+}
+.productAnalysisContainer .middle-pannel .sell-block{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+	padding-bottom: 40px;
+}
+.productAnalysisContainer .middle-pannel .invest-block{
+	height: 40px;
+	width: 100%;
+	color: #333333;
+	font-size: 14px;
+}
+.productAnalysisContainer .middle-pannel .invest-block .invest-item{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+}
+.productAnalysisContainer .middle-pannel .invest-block .invest-label{
+	color: #AAAAAA;
+	width: 75px;
+}
+.productAnalysisContainer .middle-pannel .invest-block input{
+	border:1px solid #DDDDDD;
+	padding-left: 10px;
+	padding-right: 30px;
+	width: 139px;
+}
+.productAnalysisContainer .middle-pannel .invest-block .invest-unit{
+	margin-left: -24px;
+}
+.productAnalysisContainer .middle-pannel .invest-block .error{
+	margin-left: 10px;
+	font-size: 12px;
+	color: #FF0000;
+}
+.productAnalysisContainer .middle-pannel .btn-line{
+	display: inline-block;
+	width: 100%;
+	height: 48px;
+	margin-top: 30px;
+}
+.productAnalysisContainer .middle-pannel .sell-block .btn{
+	display: inline-block;
+	font-size: 22px;
+	color: #FFFFFF;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.productAnalysisContainer .middle-pannel .sell-block .status1{
+	border-bottom: 3px solid #C80000;
+	background-color: #FA6400;
+}
+.productAnalysisContainer .middle-pannel .sell-block .status2{
+	border-bottom: 3px solid #CCCCCC;
+	background-color: #DDDDDD;
+}
+.productAnalysisContainer .middle-pannel .sell-block .status3{
+	border-bottom: 3px solid #E7B492;
+	background-color: #F4C7A9;
+}
+.productAnalysisContainer .middle-pannel .other-block{
+	display: inline-block;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	border-top:1px solid #DDDDDD;
+	font-size: 12px;
+	color: #666666;
+	line-height: 20px;
+}
+.productIntroductionContainer{
+	margin: 50px 0;
+	border-top:1px solid #E6E6E6;
+	font-size: 18px;
+	padding:0 0 100px 0;
+	background-color: #FFFFFF;
+}
+.productIntroductionContainer .tab-menu{
+	position: relative;
+	height: 59px;
+	color: #999999;
+	font-size: 18px;
+	border-bottom: 1px solid #E6E6E6;
+}
+.productIntroductionContainer .tab-menu li{
+	height: 59px;
+	width: 175px;
+	float: left;
+    border-right: 1px solid #E6E6E6;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E6E6E6;
+    z-index: 10;
+}
+.productIntroductionContainer .tab-menu li a{
+	position: absolute;
+	display: inline-block;
+	top:0;
+	width: 175px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.productIntroductionContainer .tab-menu li.selected{
+	height: 56px;
+	border-top:3px solid #FA9600;
+	border-bottom: 1px solid #FFFFFF;
+	color: #FA9600;
+}
+.productIntroductionContainer .tab-page{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding:50px 100px 0 50px;
+}
+.productIntroductionContainer .block{
+	display: inline-block;
+	float: left;
+	font-size: 12px;
+	color: #666666;
+}
+.productIntroductionContainer .block li{
+	height: 25px;
+	line-height: 25px;
+}
+.productIntroductionContainer .block .label{
+	display: inline-block;
+	color: #BBBBBB;
+	text-align: right;
+}
+.productIntroductionContainer .block .value{
+	display: inline-block;
+	text-align: left;
+}
+.productIntroductionContainer .left-block{
+	width: 322px;
+	border-left: 1px dashed #EEEEEE;
+	padding-right: 10px;
+}
+.productIntroductionContainer .left-block .label{
+	text-align: left;
+}
+.productIntroductionContainer .middle-block{
+	width: 312apx;
+	border-left: 1px dashed #EEEEEE;
+	padding: 0 10px;
+}
+.productIntroductionContainer .middle-block .label{
+	width: 175px;
+}
+.productIntroductionContainer .middle-block .value{
+	width: 158px;
+}
+.productIntroductionContainer .right-block{
+	width: 313apx;
+	padding: 0 10px;
+}
+.productIntroductionContainer .right-block .label{
+	width: 165px;
+}
+.productIntroductionContainer .right-block .value{
+	width: 168px;
+}
+
+.productIntroductionContainer .tab2{
+	padding: 0 150px;
+}
+.productIntroductionContainer .tab2 .pageNum{
+	font-size: 18px;
+	color: #CCCCCC;
+}
+.productIntroductionContainer .tab2 .pageNum li{
+	display: inline-block;
+	float: left;
+}
+.productIntroductionContainer .tab2 .currentPage{
+	color: #FA9600;
+}
+.productIntroductionContainer .tab2 .page:hover{
+	color: #FA9600;
+}
+.productIntroductionContainer .tab2 .disabled{
+	color: #E6E6E6;
+}
+/*end of product detail page*/

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit"> 
+    <title>登录</title>
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body class="bodylogin" ng-cloak>
+<form name='login_form' class="margeB0" ng-controller='loginController'>
+    <div class="w">
+        <div class="bar">
+            <span/>
+
+            <div class="bd_logo">
+                <a href="index.html" class="logo"></a>
+            </div>
+
+            </span>
+
+            <span class="logo_text">欢迎登录</span>
+            <span class="clear"></span>
+
+        </div>
+    </div>
+    <div class="w b">
+
+        <div class="bg_body">
+            <div class="bg_body_left"></div>
+            <div class="bg_body_right" ng-init="show_login=true">
+                <div class="logintitle">
+
+                    <input id="login" type='button' class="login_t" value="登录" ng-click="clicklogin()"/>
+                    <input id="fast_login" type='button' class="login_t" value="快速登录" ng-click="clickfastlogin()">
+                    <span class="clear"></span>
+                </div>
+
+
+                <div id="fast" ng-show="!show_login">
+                    <div>
+                        <div class="error"
+                             ng-show="login_form.input_phone.$error.pattern ||login_form.input_pass.$error.pattern
+                             ||login_form.input_code.$error.maxlength||login_form.input_code.$error.minlength||login.errormessage">
+
+                            <small class="error" ng-model="login.errormessage" ng-show="login.errormessage"><span
+                                    ng-bind="login.errormessage"></span></small>
+                        </div>
+                        <div class="margeT20">
+                            <div class="border">
+                                <ol class="input">
+
+                                    <li><span class="input_icon phone_icon"></span></li>
+                                    <li><input name="input_phone" type='text' placeholder='输入手机号'
+                                               ng-pattern="/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/"
+                                               ng-model="login.cellphone"
+                                            /></li>
+
+                                </ol>
+                            </div>
+
+                            <div class="border">
+                                <ol class="input">
+                                    <li><span class="input_icon passw_icon"></span></li>
+                                    <li><input name="input_pass" type='password' placeholder='输入密码'
+                                               ng-model="login.passwordf"
+                                               maxlength="16"
+                                               ng-pattern="/(((?=.*[a-zA-Z])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[a-zA-Z])))\S{8,16}$/"/>
+                                    </li>
+
+                                </ol>
+                            </div>
+                            <div class="border">
+                                <ol class="input">
+                                    <li><input id="input_code" type='text' placeholder='   输入动态码' name="input_code"
+                                               ng-model="login.smsCode"
+                                               minlength="6"
+                                               maxlength="6"
+                                            /></li>
+                                    <li>
+                                        <button type="button"
+                                                class="r_i_cc" ng-click="smstimerout()" id="send_code" ng-disabled="login.smsdisable || !login.cellphone">发送动态码（60）
+                                        </button>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <button type="button"
+                                ng-disabled="  login_form.input_pass.$pristine ||login_form.input_phone.$pristine || login_form.input_code.$pristine ||login.acceptTos!=true"
+                                ng-click="quickloginToServer(login_form.input_code.$invalid ,login_form.input_pass.$invalid ,login_form.input_phone.$invalid)"
+                                class="button buttondiasble"  name="loginButton">登录
+                        </button>
+                        <ul class="remember_black">
+                            <li class="remember"><input id="auto" name="check_read" type="checkbox" class="readok" ng-model="login.acceptTos"/>阅读并接受
+                            </li>
+                            <li class="remember">
+                                <div><a class="nline" href="regterm.html" target="_blank">《众网金融用户协议》</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div id="normed" ng-show="show_login">
+                    <div class="error" ng-show="login.errormessage">
+                        <small class="error" ng-show="login.errormessage"><span ng-bind="login.errormessage"></span>
+                        </small>
+
+                    </div>
+
+                    <div class="margeT20">
+                        <div class="border">
+                            <ol class="input">
+                                <li><span class="input_icon user_icon"></span></li>
+                                <li><input type='text' placeholder='手机号/邮箱/用户名'
+                                           name="loginname"
+                                           ng-model="login.loginname"
+                                           ng-pattern="/^[\w\d_]{4,30}$/"
+                                           maxlength="30"
+
+                                        />
+                                </li>
+
+                            </ol>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="border">
+                            <ol class="input">
+                                <li><span class="input_icon passw_icon"></span></li>
+                                <li><input class="input" type='password' placeholder='输入密码'
+                                           name="password"
+                                           ng-model="login.password"
+                                           ng-pattern="/(((?=.*[a-zA-Z])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[0-9]))|((?=.*?[@!#$%^&*()_+\.\-\?<>'|=])(?=.*[a-zA-Z]))).{8,16}$/"
+                                           maxlength="16"
+                                        />
+                                </li>
+                            </ol>
+                            <span class="clear"></span>
+                        </div>
+                        <div class="border">
+                            <ol class="input" ng-init="clickimg=false">
+                                <li><input id="input_check_c" type='text'
+                                           name="captcha"
+                                           ng-model="login.captcha"
+                                           ng-minlength="4"
+                                           ng-maxlength="4"
+                                        />
+                                </li>
+                                <li><img id="img_check" class="input_check"
+                                         ng-click="getcaptchatoken()" ng-init="firstgetCaptcha()" ng-show="clickimg"/>
+
+                                </li>
+
+                            </ol>
+                            <span class="clear"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="remember_black">
+                            <li class="remember"><input id="auto" type="checkbox" ng-model="remember.login"/>自动登录</li>
+                            <li class="register">
+                                <div><a class="line" id="aline" href="regieter.html">免费注册</a></div>
+                            </li>
+
+                            <li class="register">
+                                <div><a class="nline" id="fline" href="forgetPassWord.html">忘记密码?</a></div>
+                            </li>
+
+                        </ul>
+                        <span class="clear"></span>
+                    </div>
+
+                    <button class="button buttondiasble" type="button"
+                            ng-disabled="!login.captcha||!login.loginname||!login.password "
+                            ng-click="loginToServer(login_form.loginname.$invalid,login_form.password.$invalid,login_form.captcha.$invalid)">
+                        登录
+                    </button>
+
+                </div>
+
+                <!-- login_form.password.$invalid||login_form.loginname.$invalid||login_form.captcha.$invalid|| -->
+
+            </div>
+            <span class="clear"></span>
+        </div>
+    </div>
+
+</form>
+<div ng-view class="well well-small"></div>
+<footer class="foot_container" ng-controller="footController">
+    <div class="wrap_foot">
+        <div class="left-block block">
+            <ul>
+                <li>
+                    <p>
+                        <span class="document" ng-repeat="document in documentList"><a href="#/">{{document.title}}</a></span>
+                    </p>
+                </li>
+                <li class="copyright">
+                    <p>Copyright © 2015-2016 众网金融科技(上海) allinmoney.com 版权所有</p>
+                    <p>备案号 沪ICP备15055080号-1</p>
+                </li>
+                <li>
+                    <img class="icon" src="img/safeiconlogo.png">
+                </li>
+            </ul>
+        </div>
+        <div class="middle-block block">
+            <ul>
+                <li><p class="p1">服务热线</p></li>
+                <li><p class="p2 orange">400 800 800</p></li>
+            </ul>
+        </div>
+        <div class="right-block block">
+            <div class="left-pannel">
+                <p>关注我们</p>
+                <p>
+                    <span class="qq_icon icon"></span>
+                    <span class="weibo_icon icon"></span>
+                </p>
+            </div>
+            <div class="right-pannel">
+                <img class="2D_code" src="img/2D_code_105_105.png" />
+            </div>
+        </div>
+    </div>
+    <span class="clear"></span>
+</footer>
+</body>
+<script data-main="js/appLogin/main" src="js/lib/require/require.js"></script>
+</html>

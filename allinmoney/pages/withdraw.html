@@ -1,0 +1,132 @@
+<div class="withdraw-page page">
+	<div class="w">
+		<div class="container step-1" ng-show="showStep(1)">
+			<header>
+				<ul>
+					<li><span class="font-22 bold">提现 -- </span></li>
+					<li><span class="font-18">提取金额到银行卡</span></li>
+					<li><span class="font-14">余额 :</span></li>
+					<li><span class="font-22 orange bold">{{totalFundsStr}}</span></li>
+					<li><span>元</span></li>
+				</ul>
+			</header>
+			<div class="content">
+				<span class="font-16 label">输入交易密码 : </span>
+				<div class="content-text">
+					<input type="password" class="password" maxlength="6" ng-model="tradeCode" ng-blur="checkTradeCode();">
+					<p class="error" ng-show="tradeCodeInvalid || tradeCodeFailed">
+						<span class="error-icon"></span>
+						<span class="font-14 message" ng-show="tradeCodeInvalid">请正确输入交易密码</span>
+						<span class="font-14 message" ng-show="tradeCodeFailed">{{tradeCodeErrorMessage}}</span>
+						<span class="clear"></span>
+					</p>
+					<p class="btn-line">
+						<a class="btn next-btn allinmoney-button-c64" ng-click="vaildateTradeKey();"><span>下一步</span></a>
+					</p>
+					<p class="tip"><a href="/backPassWord.html">忘记交易密码?</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="container step-2" ng-show="showStep(2)">
+			<header>
+				<ul>
+					<li><span class="font-22 bold">提现 -- </span></li>
+					<li><span class="font-18">提取金额到银行卡</span></li>
+					<li><span class="font-14">余额 :</span></li>
+					<li><span class="font-22 orange bold">{{totalFundsStr}}</span></li>
+					<li><span>元</span></li>
+				</ul>
+			</header>
+			<div class="content">
+				<div class="label-content">
+					<span class="font-16 label">银行卡 : </span>
+					<span class="font-16 label">提取金额 : </span>	
+				</div>
+				<div class="content-text">
+					<p class="content1">
+						<span>{{accountName}}</span>
+						<span>{{cardTitle}}</span>
+					</p>
+					<input type="text" class="balance" ng-class="{true:'invalidate'}[balanceInvalid]" ng-model="balance" ng-blur="checkBalance();" placeholder="输入金额">
+					<span>元</span>
+					<p class="error" ng-show="balanceInvalid">
+						<span class="error-icon"></span>
+						<span class="font-14 message">{{balanceInvalidMessage}}</span>
+						<span class="clear"></span>
+					</p>
+					<p class="btn-line">
+						<a class="btn next-btn allinmoney-button-c64" ng-click="gotoConfirm();" ng-class="{true:'disable'}[disableBtn]"><span>去提现</span></a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container step-3" ng-show="showStep(3)">
+			<header>
+				<ul>
+					<li><span class="font-22 bold">提现 -- </span></li>
+					<li><span class="font-18">提取金额到银行卡</span></li>
+					<li><span class="font-14">余额 :</span></li>
+					<li><span class="font-22 orange bold">{{totalFundsStr}}</span></li>
+					<li><span>元</span></li>
+				</ul>
+			</header>
+			<div class="content">
+				<div class="label-content">
+					<span class="font-16 label">银行卡信息 : </span>
+					<span class="font-16 label">提取金额 : </span>
+					<span class="font-16 label">预计到账时间 : </span>	
+				</div>
+				<div class="content-text">
+					<p class="content1 text">
+						<span>{{accountName}}</span>
+						<span>{{cardTitle}}</span>
+					</p>
+					<p class="content2 text">
+						<span class="red">{{balanceStr}}</span>
+						<span>元</span>
+					</p>
+					<p class="content3 text">
+						<span>下一个工作日24:00前</span>
+					</p>
+					<p class="btn-line">
+						<a class="btn next-btn allinmoney-button-c64" ng-click="confirmWithdraw();"><span>确认提现</span></a>
+						<a class="btn prev-btn" ng-click="backStepTwo();"><span>返回修改</span></a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container step-4" ng-show="showStep(4)">
+			<p class="title">提现申请已提交,等待银行处理。</p>
+			<div class="content">
+				<p class="content1">如果银行信息有误,导致提现失败,资金将自动退还到您的账户余额中。</p>
+				<ul class="content2">
+					<li>
+						<span class="icon active"></span>
+						<div class="text-block">
+							<span class="title-text">提现申请</span>
+							<span class="text">{{withdrawDate}}</span>
+						</div>
+					</li>
+					<li>
+						<span class="icon active"></span>
+						<div class="text-block">
+							<span class="title-text">银行处理中</span>
+							<span class="text">{{withdrawDate}}</span>
+						</div>
+					</li>
+					<li>
+						<span class="icon"></span>
+						<div class="text-block">
+							<span class="title-text last">提现成功</span>
+						</div>
+					</li>
+				</ul>
+				<p class="content3">
+					<a href="#/withdraw/stepTwo"><span>继续提现</span></a>
+					<a ng-click="gotoAccount()"><span>查看提现记录</span></a>
+					<a href="#/account"><span>返回用户中心</span></a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

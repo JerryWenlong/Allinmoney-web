@@ -1,0 +1,242 @@
+.withdraw-page{
+	position: relative;
+	color: #333333;
+}
+.withdraw-page .container{
+	display: inline-block;
+	position: relative;
+	width:100%;
+	height: auto;
+	margin-top:20px;
+}
+.withdraw-page header{
+	display: inline-block;
+	width:calc(100% - 60px);
+	height: 30px;
+	padding: 20px 30px;
+	background-color: #FFFFFF;
+}
+.withdraw-page header ul{
+	height: 30px;
+}
+.withdraw-page header li{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+.withdraw-page header li:nth-child(2){
+	border-right: 1px solid #ccc;
+	padding-right: 20px;
+}
+.withdraw-page header li:nth-child(3){
+	padding-left: 20px;
+}
+.withdraw-page .content{
+	display: inline-block;
+	width:100%;
+	padding: 80px 0 130px 0;
+	margin-top: 20px;
+	background-color: #FFFFFF;
+}
+.withdraw-page .label-content{
+	display: inline-block;
+	float: left;
+	width: 270px;
+}
+.withdraw-page .content .label{
+	display: inline-block;
+	width: 260px;
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+	color: #999999;
+	font-size: 16px;
+	float: left;
+	padding-right: 10px;
+	margin-bottom: 30px;
+}
+.withdraw-page .content .btn-line{
+	display: inline-block;
+	width: 100%;
+}
+.withdraw-page .step-3 .content .label{
+	margin-bottom: 0px;
+}
+.withdraw-page .content .content-text{
+	display: inline-block;
+	width:500px;
+	float: left;
+}
+.withdraw-page .content .error{
+	display: inline-block;
+	width:300px;
+	margin-top:10px;
+}
+.withdraw-page .content .error .error-icon{
+	display: inline-block;
+	float: left;
+}
+.withdraw-page .error .message{
+	display: inline-block;
+	font-size: 14px;
+	line-height: 15px;
+	width: calc(100% - 25px);
+	color: #FA0000;
+	margin-left: 10px;
+	float: left;
+}
+.withdraw-page .step-1 .content input.password{
+	display: inline-block;
+	width:280px;
+	height: 40px;
+	border-radius: 5px;
+	border:1px solid #FA9600;
+	padding:0 10px;
+	font-size: 22px;
+}
+.withdraw-page .step-2 .content input.balance{
+	display: inline-block;
+	width:180px;
+	height: 40px;
+	border-radius: 5px;
+	border:1px solid #FA9600;
+	padding:0 10px;
+	font-size: 16px;
+	color: #FF0000;
+}
+.withdraw-page .step-2 .content input.balance.invalidate{
+	border-color: #FF0000;
+}
+.withdraw-page .step-2 .content input.balance::-webkit-input-placeholder{
+	color: #BBBBBB;
+}
+.withdraw-page .step-2 .content input.balance:-moz-placeholder{
+	color: #BBBBBB;
+}
+.withdraw-page .step-2 .content input.balance::-moz-placeholder{
+	color: #BBBBBB;
+}
+.withdraw-page .step-2 .content input.balance::-ms-input-placeholder{
+	color: #BBBBBB;
+}
+.withdraw-page .content .next-btn, .withdraw-page .content .prev-btn{
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	margin-top: 30px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+	color: #FFFFFF;
+	border-radius: 5px;
+	background-color: #FA9600;
+	float: left;
+}
+.withdraw-page .content .prev-btn{
+	color: #999999;
+	border: 1px solid #999999;
+	margin-left: 10px;
+	background-color: #FFFFFF;
+}
+.withdraw-page .step-1 .content .tip{
+	margin-top: 20px;
+	font-size: 14px;
+	color:#00A5FA;
+}
+.withdraw-page .content p{
+	width: 100%;
+} 
+.withdraw-page .step-2 .content .content1{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 30px;
+	color: #333333;
+	font-size: 16px;
+}
+.withdraw-page .step-2 .content .content1 span:nth-child(1){
+	margin-left: 10px;
+	margin-right: 20px;
+}
+.withdraw-page .step-3 .content-text .text{
+	display: inline-block;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	color: #333333;
+	font-size: 16px;
+} 
+.withdraw-page .step-4 .title{
+	display: inline-block;
+	width:calc(100% - 100px);
+	height: 100px;
+	background-color: #FA9600;
+	font-size: 22px;
+	color: #FFFFFF;
+	line-height: 100px;
+	padding-left: 100px;
+	margin-bottom: 45px;
+}
+.withdraw-page .step-4 .content{
+	margin-top: 0px;
+	font-size: 16px;
+	color: #666;
+	width: calc(100% - 100px);
+	padding: 50px 0 100px 100px;
+}
+.withdraw-page .step-4 .content .content1{
+	margin-bottom: 45px;
+}
+.withdraw-page .step-4 .content .content2 li{
+	margin-bottom: 30px;
+}
+.withdraw-page .step-4 .content .content2{
+	margin-bottom: 50px;
+}
+.withdraw-page .step-4 .content .content3{
+	color: #FA9600;
+}
+.withdraw-page .step-4 .content .icon{
+	display: inline-block;
+	width:12px;
+	height: 12px;
+	margin: 14px 20px 14px 0px;
+	background-image: url('../img/account_icon.png');
+	background-position: -22px -160px;
+}
+.withdraw-page .step-4 .content .icon.active{
+	background-position: 0 -160px;
+}
+
+.withdraw-page .step-4 .content .text-block{
+	display: inline-block;
+	height: 40px;
+	width:300px;
+}
+.withdraw-page .step-4 .content .text-block span{
+	display: inline-block;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	font-size: 16px;
+	float: left;
+}
+.withdraw-page .step-4 .content .text-block span.last{
+	height: 40px;
+	line-height: 40px;
+}
+.withdraw-page .step-4 .content .content3 a{
+	display: inline-block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px;
+	border-right: 2px solid;
+}
+.withdraw-page .step-4 .content .content3 a:nth-child(1){
+	padding-left: 0;
+}
+.withdraw-page .step-4 .content .content3 a:nth-child(3){
+	border-right: none;
+}
